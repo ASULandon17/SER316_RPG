@@ -5,6 +5,7 @@ plugins {
 
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'eclipse'
 
 mainClassName = 'Main'
 
