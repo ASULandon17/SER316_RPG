@@ -13,7 +13,7 @@ public class MainTest {
     @Test
     public void createsMessage() {
         String[] args = {};
-        main.main(args);
+        Main.main(args);
         assertEquals("Message is incorrect", "Hello 316", main.getMessage());
     }
 }
