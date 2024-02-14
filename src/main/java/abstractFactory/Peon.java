@@ -1,14 +1,20 @@
 package abstractFactory;
 public abstract class Peon {
     
-    private final int MAX_STAT = 1;
-    private final int MIN_STAT = 3;
+    private final int MAX_STAT = 3;
+    private final int MIN_STAT = 1;
     
+    private String name;
     private int attack;
     private int defense;
     private int speed;
     private int luck;
     private int hitPoints;
+    private int status;
+    
+    public int generateRandomStat() {
+        return (int) ((Math.random() * MAX_STAT - MIN_STAT)) + MIN_STAT;
+    }
     
     public int useAttack() {
         if ((int) ((Math.random() * 100 - 1)) + 1 >= luck) {
@@ -18,16 +24,12 @@ public abstract class Peon {
         }
     }
     
-    public int generateRandomStat() {
-        return (int) ((Math.random() * MAX_STAT - MIN_STAT)) + MIN_STAT;
+    public String getName() {
+        return name;
     }
     
-    public int getLuck() {
-        return luck;
-    }
-    
-    public void setLuck(int luck) {
-        this.luck = luck;
+    public void setName(String name) {
+        this.name = name;
     }
     
     public int getAttack() {
@@ -54,11 +56,27 @@ public abstract class Peon {
         this.speed = speed;
     }
     
+    public int getLuck() {
+        return luck;
+    }
+    
+    public void setLuck(int luck) {
+        this.luck = luck;
+    }
+    
     public int getHitPoints() {
         return hitPoints;
     }
     
     public void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
