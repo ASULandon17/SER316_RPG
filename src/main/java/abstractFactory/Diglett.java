@@ -3,6 +3,7 @@ package abstractFactory;
 public class Diglett extends Peon {
     
     public Diglett() {
+        setName("Diglett");
         setAttack(generateRandomStat());
         setDefense(generateRandomStat());
         setSpeed(generateRandomStat());
