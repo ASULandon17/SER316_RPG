@@ -15,11 +15,12 @@ public abstract class Henchman {
     
     
     public int generateRandomStat() {
-        return (int) ((Math.random() * MAX_STAT - MIN_STAT)) + MIN_STAT;
+        return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
     }
     
     public int useAttack() {
-        if ((int) ((Math.random() * 100 - 1)) + 1 <= luck) {
+        if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
+            System.out.println("It's a critical hit!");
             return attack * 2;
         } else {
             return attack;
