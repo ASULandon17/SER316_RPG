@@ -19,7 +19,7 @@ public abstract class Henchman {
     }
     
     public int useAttack() {
-        if ((int) ((Math.random() * 100 - 1)) + 1 >= luck) {
+        if ((int) ((Math.random() * 100 - 1)) + 1 <= luck) {
             return attack * 2;
         } else {
             return attack;

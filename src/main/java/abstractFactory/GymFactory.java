@@ -1,6 +1,6 @@
 package abstractFactory;
 
-public abstract class EnemyFactory {
+public abstract class GymFactory {
     
     public abstract Peon getPeon();
     

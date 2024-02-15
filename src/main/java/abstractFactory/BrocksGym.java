@@ -1,6 +1,6 @@
 package abstractFactory;
 
-public class BrocksGymFactory extends EnemyFactory {
+public class BrocksGym extends GymFactory {
     
     @Override 
     public Peon getPeon() {
