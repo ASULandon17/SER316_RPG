@@ -11,7 +11,6 @@ public abstract class Boss {
     private int hitPoints;
     private int powerPoints;
     private int potion;
-    private int status;
     
     public int generateRandomStat() {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
@@ -26,7 +25,7 @@ public abstract class Boss {
         }
     }
     
-    public abstract int useSpecialAttack(Player player);
+    public abstract int useSpecialAttack();
     
     public boolean useHitPotion() {
         if (potion > 0) {
@@ -108,13 +107,5 @@ public abstract class Boss {
 
     public void setPotion(int potion) {
         this.potion = potion;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 }

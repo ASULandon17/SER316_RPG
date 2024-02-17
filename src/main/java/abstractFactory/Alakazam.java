@@ -13,7 +13,7 @@ public class Alakazam extends Boss{
         setPotion(1);
     }
     
-    public int useSpecialAttack(Player player) {
+    public int useSpecialAttack() {
         //check if enough PP is available
         if (getPowerPoints() < 5) {
             System.out.println("Not enough PP for this move!");
@@ -25,16 +25,6 @@ public class Alakazam extends Boss{
         //get damage from a regular attack
         int damage = useAttack();
         //give bonus damage because it's the special attack
-        return (int) Math.ceil(damage * 1.5);
-        
-        /*
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * !!!   Figure out how to inflict status here   !!!
-         * !!!      Should be a chance of confusion      !!!
-         * !!!     Duration 3:  Effect: Damages self     !!!
-         * !!! Chance: (25% * (1 + ((20 - luck) * 0.1))) !!!
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         */
-        
+        return (int) Math.ceil(damage * 1.6);
     }
 }

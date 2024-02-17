@@ -13,7 +13,7 @@ public class Raichu extends Boss{
         setPotion(1);
     }
     
-    public int useSpecialAttack(Player player) {
+    public int useSpecialAttack() {
         //check if enough PP is available
         if (getPowerPoints() < 4) {
             System.out.println("Not enough PP for this move!");
@@ -25,15 +25,6 @@ public class Raichu extends Boss{
         //get damage from a regular attack
         int damage = useAttack();
         //multiply by 1.4 because it's the special attack
-        return (int) Math.floor(damage * 1.4);
-        
-        /*
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * !!!   Figure out how to inflict status here   !!!
-         * !!!      Should be a chance of paralysis      !!!
-         * !!!       Duration 1: Effect: Can't att       !!!
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         */
-        
+        return (int) Math.floor(damage * 1.5);
     }
 }

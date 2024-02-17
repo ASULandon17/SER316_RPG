@@ -14,8 +14,6 @@ public abstract class Player implements Evolution{
     private int powerPoints; //MAX powerPoints
     private int mana; //actual powerPoints left
     private int potion;
-    private int coins;
-    private int status;
     private int experience;
     private int nextLevelExp;
     private int level;
@@ -202,22 +200,6 @@ public abstract class Player implements Evolution{
 
     public void setPotion(int potion) {
         this.potion = potion;
-    }
-
-    public int getCoins() {
-        return coins;
-    }
-
-    public void setCoins(int coins) {
-        this.coins = coins;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 
     public int getExperience() {

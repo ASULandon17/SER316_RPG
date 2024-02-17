@@ -13,7 +13,7 @@ public class Nidoking extends Boss{
         setPotion(1);
     }
     
-    public int useSpecialAttack(Player player) {
+    public int useSpecialAttack() {
         //check if enough PP is available
         if (getPowerPoints() < 6) {
             System.out.println("Not enough PP for this move!");
@@ -32,7 +32,6 @@ public class Nidoking extends Boss{
         String message = damageMultiplier >= 2 ? ((damageMultiplier * 3) + " on the Richter scale!") : 
                                                  ((damageMultiplier * 3) + " on the Richeter scale! It's a world destroyer!");
         System.out.println(message);
-        //give bonus damage because it's the special attack
         return damage;
     }
 }

@@ -13,7 +13,7 @@ public class Onix extends Boss{
         setPotion(1);
     }
     
-    public int useSpecialAttack(Player player) {
+    public int useSpecialAttack() {
         //check if enough PP is available
         if (getPowerPoints() < 3) {
             System.out.println("Not enough PP for this move!");
@@ -25,6 +25,6 @@ public class Onix extends Boss{
         //get damage from a regular attack
         int damage = useAttack();
         //multiply by 1.5 because it's the special attack
-        return (int) Math.floor(damage * 1.5);
+        return (int) Math.floor(damage * 1.4);
     }
 }
