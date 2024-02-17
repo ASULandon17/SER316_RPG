@@ -9,5 +9,6 @@ public class Growlithe extends Peon {
         setSpeed(generateRandomStat() * 4);
         setLuck((int) Math.ceil(generateRandomStat() * 2));
         setHitPoints(generateRandomStat() * 14);
+        setHealth(getHitPoints());
     }
 }

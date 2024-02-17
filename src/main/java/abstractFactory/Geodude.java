@@ -9,6 +9,7 @@ public class Geodude extends Henchman{
         setSpeed(generateRandomStat());
         setLuck((int) Math.floor(generateRandomStat() / 2 ));
         setHitPoints(generateRandomStat() * 3);
+        setHealth(getHitPoints());
         setPotion(1);
     }
 }

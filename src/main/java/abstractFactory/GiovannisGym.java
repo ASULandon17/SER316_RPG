@@ -3,17 +3,17 @@ package abstractFactory;
 public class GiovannisGym extends GymFactory {
     
     @Override 
-    public Peon getPeon() {
+    public Enemy getPeon() {
         return new Machoke();
     }
     
     @Override
-    public Henchman getHenchman() {
+    public Enemy getHenchman() {
         return new Rhydon();
     }
     
     @Override
-    public Boss getBoss() {
+    public Enemy getBoss() {
         return new Nidoking();
     }
 }

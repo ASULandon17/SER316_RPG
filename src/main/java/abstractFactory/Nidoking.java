@@ -10,15 +10,12 @@ public class Nidoking extends Boss{
         setLuck((int) Math.floor(generateRandomStat() * 2.5));
         setHitPoints(generateRandomStat() * 20);
         setPowerPoints(generateRandomStat() * 5);
+        setHealth(getHitPoints());
+        setMana(getPowerPoints());
         setPotion(1);
     }
     
     public int useSpecialAttack() {
-        //check if enough PP is available
-        if (getPowerPoints() < 6) {
-            System.out.println("Not enough PP for this move!");
-            return -1;
-        }
         System.out.println("Nidoking used Earthquake!");
         //decrement PP
         setPowerPoints(getPowerPoints() - 6);
@@ -33,5 +30,19 @@ public class Nidoking extends Boss{
                                                  ((damageMultiplier * 3) + " on the Richeter scale! It's a world destroyer!");
         System.out.println(message);
         return damage;
+    }
+    
+    public int takeTurn() {
+        //use a health potion if health is low
+        if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
+            useHitPotion();
+            return 0;
+        //use sp.attack ~33% of the time if enough mana 
+        } else if ((getMana() >= 6) && (Math.random() > 0.33)) {
+            return useSpecialAttack();
+        //otherwise just attack
+        } else {
+            return useAttack();
+        }
     }
 }

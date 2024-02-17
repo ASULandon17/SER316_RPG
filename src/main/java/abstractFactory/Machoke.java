@@ -9,5 +9,6 @@ public class Machoke extends Peon {
         setSpeed(generateRandomStat() * 5);
         setLuck((int) Math.ceil(generateRandomStat() * 2.5));
         setHitPoints(generateRandomStat() * 20);
+        setHealth(getHitPoints());
     }
 }

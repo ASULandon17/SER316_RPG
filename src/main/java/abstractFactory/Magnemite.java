@@ -9,5 +9,6 @@ public class Magnemite extends Peon {
         setSpeed(generateRandomStat() * 2);
         setLuck((int) Math.floor(generateRandomStat()));
         setHitPoints(generateRandomStat() * 5);
+        setHealth(getHitPoints());
     }
 }

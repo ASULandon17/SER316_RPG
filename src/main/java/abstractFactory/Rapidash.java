@@ -9,6 +9,7 @@ public class Rapidash extends Henchman{
         setSpeed(generateRandomStat() * 4);
         setLuck((int) Math.floor(generateRandomStat() * 2));
         setHitPoints(generateRandomStat() * 14);
+        setHealth(getHitPoints());
         setPotion(1);
     }
 }

@@ -1,5 +1,5 @@
 package abstractFactory;
-public abstract class Boss {
+public abstract class Boss extends Enemy {
     private final int MAX_STAT = 10;
     private final int MIN_STAT = 5;
     
@@ -9,11 +9,23 @@ public abstract class Boss {
     private int speed;
     private int luck;
     private int hitPoints;
+    private int health;
     private int powerPoints;
+    private int mana;
     private int potion;
     
     public int generateRandomStat() {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
+    }
+    
+    public int takeDamage(int damage) {
+        //factor in characters defense
+        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
+        
+        //1 damage must always be dealt
+        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
+        this.health -= calculatedDamage;
+        return calculatedDamage;
     }
     
     public int useAttack() {
@@ -31,15 +43,6 @@ public abstract class Boss {
         if (potion > 0) {
             potion--;
             hitPoints += 20;
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean usePowerPotion() {
-        if (potion > 0) {
-            potion--;
-            powerPoints += 10;
             return true;
         }
         return false;
@@ -107,5 +110,21 @@ public abstract class Boss {
 
     public void setPotion(int potion) {
         this.potion = potion;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 }

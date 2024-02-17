@@ -9,5 +9,6 @@ public class Abra extends Peon {
         setSpeed(generateRandomStat() * 3);
         setLuck((int) Math.ceil(generateRandomStat() * 1.5));
         setHitPoints(generateRandomStat() * 9);
+        setHealth(getHitPoints());
     }
 }

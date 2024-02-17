@@ -3,17 +3,17 @@ package abstractFactory;
 public class BrocksGym extends GymFactory {
     
     @Override 
-    public Peon getPeon() {
+    public Enemy getPeon() {
         return new Diglett();
     }
     
     @Override
-    public Henchman getHenchman() {
+    public Enemy getHenchman() {
         return new Geodude();
     }
     
     @Override
-    public Boss getBoss() {
+    public Enemy getBoss() {
         return new Onix();
     }
 }

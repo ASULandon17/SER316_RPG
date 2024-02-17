@@ -9,6 +9,7 @@ public class Voltorb extends Henchman{
         setSpeed(generateRandomStat() * 2);
         setLuck((int) Math.floor(generateRandomStat()));
         setHitPoints(generateRandomStat() * 5);
+        setHealth(getHitPoints());
         setPotion(1);
     }
 }

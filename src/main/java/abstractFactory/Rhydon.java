@@ -9,6 +9,7 @@ public class Rhydon extends Henchman{
         setSpeed(generateRandomStat() * 5);
         setLuck((int) Math.floor(generateRandomStat() * 2.5));
         setHitPoints(generateRandomStat() * 20);
+        setHealth(getHitPoints());
         setPotion(1);
     }
 }

@@ -1,5 +1,4 @@
 import decoratorPattern.Player;
-import equipment.Equipment;
 import equipment.RandomItemGenerator;
 
 
@@ -18,5 +17,4 @@ public class Main {
         
         System.out.println(RandomItemGenerator.getItem().getWeaponName());
     }
-    
 }

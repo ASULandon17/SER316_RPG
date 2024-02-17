@@ -9,5 +9,6 @@ public class Diglett extends Peon {
         setSpeed(generateRandomStat());
         setLuck((int) Math.floor(generateRandomStat() / 2 ));
         setHitPoints(generateRandomStat() * 3);
+        setHealth(getHitPoints());
     }
 }

@@ -1,5 +1,5 @@
 package abstractFactory;
-public abstract class Peon {
+public abstract class Peon extends Enemy {
     
     private final int MAX_STAT = 3;
     private final int MIN_STAT = 1;
@@ -10,10 +10,24 @@ public abstract class Peon {
     private int speed;
     private int luck;
     private int hitPoints;
-    private int status;
+    private int health;
     
     public int generateRandomStat() {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
+    }
+    
+    public int takeTurn() {
+        return useAttack();
+    }
+    
+    public int takeDamage(int damage) {
+        //factor in characters defense
+        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
+        
+        //1 damage must always be dealt
+        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
+        this.health -= calculatedDamage;
+        return calculatedDamage;
     }
     
     public int useAttack() {
@@ -73,11 +87,11 @@ public abstract class Peon {
         this.hitPoints = hitPoints;
     }
 
-    public int getStatus() {
-        return status;
+    public int getHealth() {
+        return health;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
