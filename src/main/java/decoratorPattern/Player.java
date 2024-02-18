@@ -2,7 +2,7 @@ package decoratorPattern;
 
 import equipment.Equipment;
 
-public abstract class Player implements Evolution{
+public abstract class Player implements Evolution {
     
     private String name;
     private int attack;
@@ -16,17 +16,55 @@ public abstract class Player implements Evolution{
     private int potion;
     private int experience;
     private int nextLevelExp;
-    private int level;
-    private PlayerType playerType;
-    private PlayerClass playerClass;
+    private int level; 
+    private int evolution; 
+    private PlayerType playerType; //Determines base stats and moves
+    private PlayerClass playerClass; //Determines how stats increase
     private Equipment weapon = null; 
     private Equipment shield = null; 
     private Equipment armor = null; 
     private Equipment accessory = null; 
     
-    public abstract int attack(); //pokemon dependent
+    public Player(String name, int att, int def, int spd, int luck, int hP, int pP,
+            PlayerType pType, PlayerClass pClass) {
+        this.name = name;
+        this.attack = att;
+        this.defense = def;
+        this.speed = spd;
+        this.luck = luck;
+        this.hitPoints = hP;
+        this.health = hP;
+        this.powerPoints = pP;
+        this.mana = pP;
+        this.potion = 0;
+        this.experience = 0;
+        this.nextLevelExp = 3;
+        this.level = 1;
+        this.evolution = 1;
+        this.playerType = pType;
+        this.playerClass = pClass;
+    }
     
-    public abstract int specialAttack(); //pokemon dependent, needs to improve when leveled up
+    public int useAttack() {
+        if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
+            System.out.println("It's a critical hit!");
+            return attack * 2;
+        } else {
+            return attack;
+        }
+    }
+    
+    //public abstract int specialAttack(); //pokemon dependent, needs to improve when leveled up
+    
+    public int takeDamage(int damage) {
+        //factor in characters defense
+        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
+        
+        //1 damage must always be dealt
+        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
+        this.health -= calculatedDamage;
+        return calculatedDamage;
+    }
     
     public boolean usePotion() {
         if (potion < 1) { //make sure there are potions to use
@@ -38,18 +76,11 @@ public abstract class Player implements Evolution{
         return true;
     }
     
-    public boolean equipItem(Evolution item) {
-        //create a case statement and check type of item, if its null equip, if not check if item.level > this.item.level
-        return true;
-    }
-    
     //add in functionality to evolve at later levels (Decorator) should be left in child class
-    public boolean levelUp() {
-        if (experience >= nextLevelExp) {
+    public void levelUp() {
+        while (experience >= nextLevelExp) {
             Experience.levelUp(this);
-            return true;
         }
-        return false;
     }
     
     public boolean addEquipment(Equipment equipment) {
@@ -57,9 +88,9 @@ public abstract class Player implements Evolution{
         
         case WEAPON: 
             if (this.weapon == null || this.weapon.getLevel() < equipment.getLevel()) {
-                if (this.weapon.getLevel() < equipment.getLevel()) {
-                    this.weapon = null;
+                if (this.weapon != null && this.weapon.getLevel() < equipment.getLevel()) {
                     unequip(this.weapon);
+                    this.weapon = null;
                 }
                 this.weapon = equipment;
                 equip(equipment);
@@ -68,9 +99,9 @@ public abstract class Player implements Evolution{
             
         case SHIELD:
             if (this.shield == null || this.shield.getLevel() < equipment.getLevel()) {
-                if (this.shield.getLevel() < equipment.getLevel()) {
+                if (this.shield != null && this.shield.getLevel() < equipment.getLevel()) {
+                    unequip(this.shield);
                     this.shield = null;
-                    unequip(this.weapon);
                 }
                 this.shield = equipment;
                 equip(equipment);
@@ -79,9 +110,9 @@ public abstract class Player implements Evolution{
             
         case ARMOR:
             if (this.armor == null || this.armor.getLevel() < equipment.getLevel()) {
-                if (this.armor.getLevel() < equipment.getLevel()) {
+                if (this.armor != null && this.armor.getLevel() < equipment.getLevel()) {
+                    unequip(this.armor);
                     this.armor = null;
-                    unequip(this.weapon);
                 }
                 this.armor = equipment;
                 equip(equipment);
@@ -90,9 +121,9 @@ public abstract class Player implements Evolution{
             
         case ACCESSORY:
             if (this.accessory == null || this.accessory.getLevel() < equipment.getLevel()) {
-                if (this.accessory.getLevel() < equipment.getLevel()) {
+                if (this.accessory != null && this.accessory.getLevel() < equipment.getLevel()) {
+                    unequip(this.accessory);
                     this.accessory = null;
-                    unequip(this.weapon);
                 }
                 this.accessory = equipment;
                 equip(equipment);
@@ -114,12 +145,12 @@ public abstract class Player implements Evolution{
     }
     
     public void unequip(Equipment equipment) {
-        this.attack -= this.weapon.getAttackBuff();
-        this.defense -= this.weapon.getDefenseBuff();
-        this.speed -= this.weapon.getSpeedBuff();
-        this.luck -= this.weapon.getLuckBuff();
-        this.hitPoints -= this.weapon.getHitPointsBuff();
-        this.powerPoints -= this.weapon.getPowerPointsBuff();
+        this.attack -= equipment.getAttackBuff();
+        this.defense -= equipment.getDefenseBuff();
+        this.speed -= equipment.getSpeedBuff();
+        this.luck -= equipment.getLuckBuff();
+        this.hitPoints -= equipment.getHitPointsBuff();
+        this.powerPoints -= equipment.getPowerPointsBuff();
     }
     
     public String getName() {
@@ -224,6 +255,14 @@ public abstract class Player implements Evolution{
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getEvolution() {
+        return evolution;
+    }
+
+    public void setEvolution(int evolution) {
+        this.evolution = evolution;
     }
 
     public PlayerType getPlayerType() {
