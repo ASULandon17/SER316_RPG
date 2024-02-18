@@ -2,65 +2,41 @@ package decoratorPattern;
 
 public class Charizard extends EvolutionDecorator {
     
-    public Charizard(Evolution evolution) {
-        super(evolution);
+    public Charizard(Player player) {
+        super(player);
     }
     
     public int getAttack() {
-        return (int) Math.floor((this.getAttack() * 3));
+        return (int) Math.floor((super.getAttack() * 2));
     }
     
     public int getDefense() {
-        return (int) Math.floor((this.getDefense() * 2));
+        return (int) Math.floor((super.getDefense() * 1.5));
     }
     
     public int getSpeed() {
-        return (int) Math.floor((this.getSpeed() * 3));
+        return (int) Math.floor((super.getSpeed() * 2));
     }
     
     public int getLuck() {
-        return (int) Math.floor((this.getLuck() * 1.5));
+        return (int) Math.floor((super.getLuck() * 1.25));
     }
     
     public int getHitPoints() {
-        return (int) Math.floor((this.getHitPoints() * 2));
+        return (int) Math.floor((super.getHitPoints() * 1.5));
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((this.getPowerPoints() * 2));
+        return (int) Math.floor((super.getPowerPoints() * 1.5));
     }
-    
-    public int getMana() {
-        return this.getMana();
-    }
-    
-    public void setMana(int mana) {
-        this.setMana(mana);
-    }
-    
-    public void setHealth(int health) {
-        this.setHealth(health);
-    }
-    
-    public int getHealth() {
-        return this.getHealth();
-    }
-    
-    public String getName() {
-        return this.getName();
-    }
-    
-    public int getEvolution() {
-        return this.getEvolution();
-    }
-    
+
     public int takeTurn() {
-        int damage = this.takeTurn();
+        int damage = super.takeTurn();
         if (damage == 0) {
             return 0;
-        } else if ((this.getEvolution() == 3) && (this.getMana() >= 8) && (Math.random() > 0.50)) {
-            System.out.println(this.getName() + " used Fire Blast!");
-            this.setMana(this.getMana() - 8);
+        } else if ((super.getEvolution() == 3) && (super.getMana() >= 8) && (Math.random() > 0.50)) {
+            System.out.println(super.getName() + " used Fire Blast!");
+            this.setMana(super.getMana() - 8);
             return (int) Math.ceil(damage * 3.25);
         } else {
             return damage;

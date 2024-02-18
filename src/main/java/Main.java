@@ -1,3 +1,4 @@
+import decoratorPattern.Experience;
 import decoratorPattern.Player;
 import equipment.Equipment;
 import equipment.RandomItemGenerator;
@@ -45,6 +46,8 @@ public class Main {
         System.out.println("HP: " + player.getHitPoints());
         System.out.println("PP: " + player.getPowerPoints());
         
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
+        
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
@@ -67,7 +70,9 @@ public class Main {
         System.out.println("Experience: " + player.getExperience());
         
         System.out.println("\n\nPlayer leveled up!");
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
         player.levelUp();
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
         System.out.println("Player level: " + player.getLevel());
         System.out.println("New stats after level up");
         System.out.println("Attack: " + player.getAttack());
@@ -78,10 +83,23 @@ public class Main {
         System.out.println("PP: " + player.getPowerPoints());
         System.out.println("\nExperience: " + player.getExperience());
         
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
+        player = Experience.evolve(player);
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
+        System.out.println("Player evo: " + player.getEvolution());
+        System.out.println("New stats after Evolution");
+        System.out.println("Attack: " + player.getAttack());
+        System.out.println("Defense: " + player.getDefense());
+        System.out.println("Speed: " + player.getSpeed());
+        System.out.println("Luck: " + player.getLuck());
+        System.out.println("HP: " + player.getHitPoints());
+        System.out.println("PP: " + player.getPowerPoints());
+        System.out.println("PlayerType: " + player.getPlayerType());
+        
+        System.out.println("\nDungeon 1 end!\n\n\n");
         
         
-        System.out.println(player.getName() + " is evolving!\n"
-                + player.getName() + " evolved into a " + player.getPlayerClass());
+        
         
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
@@ -107,7 +125,9 @@ public class Main {
         System.out.println("Experience: " + player.getExperience());
         
         System.out.println("\n\nPlayer leveled up!");
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
         player.levelUp();
+        System.out.println("\n\nPlayerClass: " + player.getPlayerClass() + "\n\n");
         System.out.println("Player level: " + player.getLevel());
         System.out.println("New stats after level up");
         System.out.println("Attack: " + player.getAttack());
@@ -117,6 +137,21 @@ public class Main {
         System.out.println("HP: " + player.getHitPoints());
         System.out.println("PP: " + player.getPowerPoints());
         System.out.println("\nExperience: " + player.getExperience());
+        
+        player = Experience.evolve(player);
+        System.out.println("Player evo: " + player.getEvolution());
+        System.out.println("New stats after Evolution");
+        System.out.println("Attack: " + player.getAttack());
+        System.out.println("Defense: " + player.getDefense());
+        System.out.println("Speed: " + player.getSpeed());
+        System.out.println("Luck: " + player.getLuck());
+        System.out.println("HP: " + player.getHitPoints());
+        System.out.println("PP: " + player.getPowerPoints());
+        System.out.println("PlayerClass: " + player.getPlayerClass());
+        
+        System.out.println("\nDungeon 2 end!\n\n\n");
+        
+        
         
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
@@ -153,6 +188,21 @@ public class Main {
         System.out.println("PP: " + player.getPowerPoints());
         System.out.println("\nExperience: " + player.getExperience());
         
+        player = Experience.evolve(player);
+        System.out.println("Player evo: " + player.getEvolution());
+        System.out.println("New stats after Evolution");
+        System.out.println("Attack: " + player.getAttack());
+        System.out.println("Defense: " + player.getDefense());
+        System.out.println("Speed: " + player.getSpeed());
+        System.out.println("Luck: " + player.getLuck());
+        System.out.println("HP: " + player.getHitPoints());
+        System.out.println("PP: " + player.getPowerPoints());
+        System.out.println("PlayerClass: " + player.getPlayerClass());
+        
+        System.out.println("\nDungeon 3 end!\n\n\n");
+        
+        
+        
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
         player.addEquipment(RandomItemGenerator.getItem());
@@ -186,6 +236,19 @@ public class Main {
         System.out.println("HP: " + player.getHitPoints());
         System.out.println("PP: " + player.getPowerPoints());
         System.out.println("\nExperience: " + player.getExperience());
+        
+        player = Experience.evolve(player);
+        System.out.println("Player evo: " + player.getEvolution());
+        System.out.println("New stats after Evolution");
+        System.out.println("Attack: " + player.getAttack());
+        System.out.println("Defense: " + player.getDefense());
+        System.out.println("Speed: " + player.getSpeed());
+        System.out.println("Luck: " + player.getLuck());
+        System.out.println("HP: " + player.getHitPoints());
+        System.out.println("PP: " + player.getPowerPoints());
+        System.out.println("PlayerClass: " + player.getPlayerClass());
+        
+        System.out.println("\nBefore bossfight!\n\n\n");
         
         
     }

@@ -2,65 +2,65 @@ package decoratorPattern;
 
 public class Wartortle extends EvolutionDecorator {
     
-    public Wartortle(Evolution evolution) {
-        super(evolution);
+    public Wartortle(Player player) {
+        super(player);
     }
     
     public int getAttack() {
-        return (int) Math.floor((this.getAttack() * 1.5));
+        return (int) Math.floor((super.getAttack() * 1.5));
     }
     
     public int getDefense() {
-        return (int) Math.floor((this.getDefense() * 2));
+        return (int) Math.floor((super.getDefense() * 2));
     }
     
     public int getSpeed() {
-        return (int) Math.floor((this.getSpeed() * 1.5));
+        return (int) Math.floor((super.getSpeed() * 1.5));
     }
     
     public int getLuck() {
-        return (int) Math.floor((this.getLuck() * 1.5));
+        return (int) Math.floor((super.getLuck() * 1.5));
     }
     
     public int getHitPoints() {
-        return (int) Math.floor((this.getHitPoints() * 1.5));
+        return (int) Math.floor((super.getHitPoints() * 1.5));
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((this.getPowerPoints() * 2));
+        return (int) Math.floor((super.getPowerPoints() * 2));
     }
     
     public int getMana() {
-        return this.getMana();
+        return super.getMana();
     }
     
     public void setMana(int mana) {
-        this.setMana(mana);
+        super.setMana(mana);
     }
     
     public void setHealth(int health) {
-        this.setHealth(health);
+        super.setHealth(health);
     }
     
     public int getHealth() {
-        return this.getHealth();
+        return super.getHealth();
     }
     
     public String getName() {
-        return this.getName();
+        return super.getName();
     }
     
     public int getEvolution() {
-        return this.getEvolution();
+        return super.getEvolution();
     }
     
     public int takeTurn() {
-        int damage = this.takeTurn();
+        int damage = super.takeTurn();
         if (damage == 0) {
             return 0;
-        } else if ((this.getEvolution() == 2) && (this.getMana() >= 4) && (Math.random() > 0.50)) {
-            System.out.println(this.getName() + " used Bubblebeam!");
-            this.setMana(this.getMana() - 4);
+        } else if ((super.getEvolution() == 2) && (super.getMana() >= 4) && (Math.random() > 0.50)) {
+            System.out.println(super.getName() + " used Bubblebeam!");
+            this.setMana(super.getMana() - 4);
             return (int) Math.ceil(damage * 1.5);
         } else {
             return damage;

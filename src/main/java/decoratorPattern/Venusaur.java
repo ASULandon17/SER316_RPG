@@ -2,70 +2,46 @@ package decoratorPattern;
 
 public class Venusaur extends EvolutionDecorator {
     
-    public Venusaur(Evolution evolution) {
-        super(evolution);
+    public Venusaur(Player player) {
+        super(player);
     }
     
     public int getAttack() {
-        return (int) Math.floor((this.getAttack() * 2));
+        return (int) Math.floor((super.getAttack() * 1.5));
     }
     
     public int getDefense() {
-        return (int) Math.floor((this.getDefense() * 3));
+        return (int) Math.floor((super.getDefense() * 2));
     }
     
     public int getSpeed() {
-        return this.getSpeed();
+        return super.getSpeed();
     }
     
     public int getLuck() {
-        return (int) Math.floor((this.getLuck() * 2));
+        return (int) Math.floor((super.getLuck() * 1.5));
     }
     
     public int getHitPoints() {
-        return (int) Math.floor((this.getHitPoints() * 3.25));
+        return (int) Math.floor((super.getHitPoints() * 2.25));
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((this.getPowerPoints() * 2));
-    }
-    
-    public int getMana() {
-        return this.getMana();
-    }
-    
-    public void setMana(int mana) {
-        this.setMana(mana);
-    }
-    
-    public void setHealth(int health) {
-        this.setHealth(health);
-    }
-    
-    public int getHealth() {
-        return this.getHealth();
-    }
-    
-    public String getName() {
-        return this.getName();
-    }
-    
-    public int getEvolution() {
-        return this.getEvolution();
+        return (int) Math.floor((super.getPowerPoints() * 1.5));
     }
     
     public int takeTurn() {
-        int damage = this.takeTurn();
+        int damage = super.takeTurn();
         if (damage == 0) {
             return 0;
-        } else if ((this.getEvolution() == 3) && (this.getMana() >= 8) && (Math.random() > 0.50)) {
-            System.out.println(this.getName() + " used Solar Beam!");
-            this.setMana(this.getMana() - 8);
+        } else if ((super.getEvolution() == 3) && (super.getMana() >= 8) && (Math.random() > 0.50)) {
+            System.out.println(super.getName() + " used Solar Beam!");
+            this.setMana(super.getMana() - 8);
             
             //restorative effect for this special move
-            int hP = this.getHitPoints();
+            int hP = super.getHitPoints();
             int heal = (int) Math.ceil(hP * 0.1);
-            int newHealth = heal + this.getHealth() > hP ? hP : heal + this.getHealth();
+            int newHealth = heal + super.getHealth() > hP ? hP : heal + super.getHealth();
             this.setHealth(newHealth);
             return (int) Math.ceil(damage * 2.5);
         } else {

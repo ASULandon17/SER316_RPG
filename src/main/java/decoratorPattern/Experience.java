@@ -77,27 +77,43 @@ public class Experience {
         player.setNextLevelExp((int) Math.floor(player.getNextLevelExp() * 1.5));
         player.setLevel(player.getLevel() + 1);
         System.out.println(player.getName() + " has leveled up to " + player.getLevel() + "!");
-        
-        if (player.getLevel() == 5) {
-            System.out.println("What?!\n" + player.getName() + " is evolving!");
-            player = evolve(player);
-        } else if (player.getLevel() == 10) {
-            System.out.println("What?!\n" + player.getName() + " is evolving!");
-            player = evolve(player);
-        }
     }
     
     public static Player evolve(Player player) {
-        if (player.getLevel() == 5 && player.getEvolution() == 1) {
+        if (player.getLevel() > 4 && player.getEvolution() == 1) {
             System.out.println("What?!\n" + player.getName() + " is evolving!");
             player.setEvolution(2);
             switch (player.getPlayerType()) {
             case BULBASAUR: 
                 player = new Ivysaur(player);
+                break;
+            case CHARMANDER:
+                player = new Charmeleon(player);
+                break;
+            case SQUIRTLE:
+                player = new Wartortle(player);
+                break;
+            default:
+                System.out.println("Something went wrong");
             }
-        } else if (player.getLevel() == 10 && player.getEvolution() == 2) {
+        }
+        if (player.getLevel() > 10 && player.getEvolution() == 2) {
             System.out.println("What?!\n" + player.getName() + " is evolving!");
             player.setEvolution(3);
+            switch (player.getPlayerType()) {
+            case IVYSAUR: 
+                player = new Venusaur(player);
+                break;
+            case CHARMELEON:
+                player = new Charizard(player);
+                break;
+            case WARTORTLE:
+                player = new Blastoise(player);
+                break;
+            default:
+                System.out.println("Something went wrong");
+            }
         }
+        return player;
     }
 }

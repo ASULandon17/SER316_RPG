@@ -2,7 +2,7 @@ package decoratorPattern;
 
 import equipment.Equipment;
 
-public abstract class Player implements Evolution {
+public abstract class Player {
     
     private String name;
     private int attack;
@@ -24,6 +24,10 @@ public abstract class Player implements Evolution {
     private Equipment shield = null; 
     private Equipment armor = null; 
     private Equipment accessory = null; 
+    
+    public Player() {
+        
+    }
     
     public Player(String name, int att, int def, int spd, int luck, int hP, int pP,
             PlayerType pType, PlayerClass pClass) {
@@ -54,7 +58,9 @@ public abstract class Player implements Evolution {
         }
     }
     
-    //public abstract int specialAttack(); //pokemon dependent, needs to improve when leveled up
+    public int takeTurn() {
+        return 0;
+    };
     
     public int takeDamage(int damage) {
         //factor in characters defense
@@ -76,7 +82,6 @@ public abstract class Player implements Evolution {
         return true;
     }
     
-    //add in functionality to evolve at later levels (Decorator) should be left in child class
     public void levelUp() {
         while (experience >= nextLevelExp) {
             Experience.levelUp(this);
