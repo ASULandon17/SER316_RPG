@@ -13,8 +13,8 @@ public abstract class EvolutionDecorator extends Player {
         return player.useAttack();
     }
     
-    public int takeDamage(int damage) {
-        return player.takeDamage(damage);       
+    public int takeTurn() {
+        return player.takeTurn();
     }
     
     public boolean usePotion() {

@@ -18,15 +18,17 @@ public abstract class Boss extends Enemy {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
     }
     
-    public int takeDamage(int damage) {
+    /*public int takeDamage(int damage) {
+        System.out.println("Player did " + damage + " before defense");
         //factor in characters defense
         int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
         
         //1 damage must always be dealt
         calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
         this.health -= calculatedDamage;
+        System.out.println("Nidoking should take " + calculatedDamage);
         return calculatedDamage;
-    }
+    }*/
     
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
@@ -42,7 +44,9 @@ public abstract class Boss extends Enemy {
     public boolean useHitPotion() {
         if (potion > 0) {
             potion--;
-            hitPoints += 20;
+            potion--; //deprecate potion count
+            health += (int) Math.ceil(hitPoints * .33); //restore 1/3 of total HP
+            health = health > hitPoints ? hitPoints : health; //health can't exceed HP
             return true;
         }
         return false;

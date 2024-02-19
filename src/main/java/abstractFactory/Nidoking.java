@@ -25,9 +25,9 @@ public class Nidoking extends Boss{
         //calculate additional damage based on luck
         int luck = getLuck() > 100 ? 100 : getLuck(); //Max luck == 100
         double damageMultiplier = ((Math.random() * (100 - luck)) + luck) + ((Math.random() * (100 - luck)) + luck);
-        damage *= (int) 1 + (.01 * damageMultiplier);
-        String message = damageMultiplier >= 2 ? ((damageMultiplier * 3) + " on the Richter scale!") : 
-                                                 ((damageMultiplier * 3) + " on the Richeter scale! It's a world destroyer!");
+        damage *= (int) 1 + Math.floor(.01 * damageMultiplier);
+        String message = damageMultiplier <= 2 ? (Math.floor(damageMultiplier * .03) + " on the Richter scale!") : 
+                                                 (Math.floor(damageMultiplier * .03) + " on the Richter scale! It's a world destroyer!");
         System.out.println(message);
         return damage;
     }

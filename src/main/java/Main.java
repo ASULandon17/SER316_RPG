@@ -2,6 +2,12 @@ import decoratorPattern.Experience;
 import decoratorPattern.Player;
 import equipment.Equipment;
 import equipment.RandomItemGenerator;
+import abstractFactory.Enemy;
+import decoratorPattern.Evolution;
+import decoratorPattern.Ivysaur;
+import decoratorPattern.Venusaur;
+import abstractFactory.Nidoking;
+import abstractFactory.Boss;
 
 
 
@@ -251,5 +257,14 @@ public class Main {
         System.out.println("\nBefore bossfight!\n\n\n");
         
         
+        Boss enemy = new Nidoking();
+        System.out.println("Attack: " + enemy.getAttack());
+        System.out.println("Defense: " + enemy.getDefense());
+        System.out.println("Speed: " + enemy.getSpeed());
+        System.out.println("Luck: " + enemy.getLuck());
+        System.out.println("HP: " + enemy.getHitPoints());
+        System.out.println("PP: " + enemy.getPowerPoints());
+        Battle battle = new Battle(player, enemy);
+        boolean victory = battle.conductBattle();
     }
 }

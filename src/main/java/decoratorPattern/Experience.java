@@ -5,7 +5,7 @@ package decoratorPattern;
 public class Experience {
     
     /*
-     * Stats have a 25% chance of increasing by twice as much normally.
+     * Stats have a 25% chance of increasing by twice as much normal.
      * This chance changes depending on class. Listed above each class is change in 
      * percentage of the chance that the stat increases by double.
      */
@@ -75,6 +75,8 @@ public class Experience {
         
         player.setExperience(player.getExperience() - player.getNextLevelExp());
         player.setNextLevelExp((int) Math.floor(player.getNextLevelExp() * 1.5));
+        player.setHealth(player.getHitPoints());
+        player.setMana(player.getPowerPoints());
         player.setLevel(player.getLevel() + 1);
         System.out.println(player.getName() + " has leveled up to " + player.getLevel() + "!");
     }
@@ -114,6 +116,8 @@ public class Experience {
                 System.out.println("Something went wrong");
             }
         }
+        player.setHealth(player.getHitPoints());
+        player.setMana(player.getPowerPoints());
         return player;
     }
 }

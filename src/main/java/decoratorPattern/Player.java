@@ -52,25 +52,33 @@ public abstract class Player {
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
-            return attack * 2;
+            return this.getAttack() * 2;
         } else {
-            return attack;
+            return this.getAttack();
         }
     }
     
     public int takeTurn() {
-        return 0;
-    };
+        //use a health potion if health is low
+        if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
+            usePotion();
+            return 0;
+        //otherwise just attack
+        } else {
+            return useAttack();
+        }
+    }
     
-    public int takeDamage(int damage) {
+    /*public int takeDamage(int damage) {
         //factor in characters defense
         int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
+        System.out.println(this.getDefense());
         
         //1 damage must always be dealt
         calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
         this.health -= calculatedDamage;
         return calculatedDamage;
-    }
+    }*/
     
     public boolean usePotion() {
         if (potion < 1) { //make sure there are potions to use
