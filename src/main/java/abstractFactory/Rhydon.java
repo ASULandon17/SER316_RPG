@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Rhydon.
+ */
 public class Rhydon extends Henchman{
 
     /*

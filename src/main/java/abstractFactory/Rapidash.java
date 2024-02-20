@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Rapidash.
+ */
 public class Rapidash extends Henchman{
 
     /*

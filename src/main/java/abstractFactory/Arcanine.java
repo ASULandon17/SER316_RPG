@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Arcanine.
+ */
 public class Arcanine extends Boss{
 
     /*

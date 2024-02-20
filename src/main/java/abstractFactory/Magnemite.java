@@ -1,5 +1,8 @@
 package abstractFactory;
 
+/*
+ * Concrete class for the pokemon Magnemite.
+ */
 public class Magnemite extends Peon {
 
     /*

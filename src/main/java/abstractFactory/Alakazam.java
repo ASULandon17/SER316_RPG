@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Alakazam.
+ */
 public class Alakazam extends Boss{
     
     /*

@@ -1,5 +1,8 @@
 package abstractFactory;
 
+/*
+ * Concrete class for the pokemon Machoke.
+ */
 public class Machoke extends Peon {
 
     /*

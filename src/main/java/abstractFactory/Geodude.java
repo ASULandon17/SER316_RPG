@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Geodude.
+ */
 public class Geodude extends Henchman{
 
     /*

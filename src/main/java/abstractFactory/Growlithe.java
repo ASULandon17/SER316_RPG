@@ -1,5 +1,8 @@
 package abstractFactory;
 
+/*
+ * Concrete class for the pokemon Growlithe.
+ */
 public class Growlithe extends Peon {
 
     /*

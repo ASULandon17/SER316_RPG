@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Kadabra.
+ */
 public class Kadabra extends Henchman{
 
     /*

@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Onix.
+ */
 public class Onix extends Boss{
 
     /*

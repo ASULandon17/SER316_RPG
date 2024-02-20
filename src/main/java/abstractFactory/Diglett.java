@@ -1,5 +1,8 @@
 package abstractFactory;
 
+/*
+ * Concrete class for the pokemon Diglett.
+ */
 public class Diglett extends Peon {
 
     /*

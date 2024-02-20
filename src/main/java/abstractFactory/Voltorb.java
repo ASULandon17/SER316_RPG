@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Voltorb.
+ */
 public class Voltorb extends Henchman{
 
     /*

@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Raichu.
+ */
 public class Raichu extends Boss{
     
     /*

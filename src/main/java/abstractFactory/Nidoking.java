@@ -1,5 +1,8 @@
 package abstractFactory; 
 
+/*
+ * Concrete class for the pokemon Nidoking.
+ */
 public class Nidoking extends Boss{
     
     /*
