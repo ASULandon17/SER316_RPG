@@ -1,8 +1,8 @@
 package abstractFactory;
 public abstract class Peon extends Enemy {
     
-    private final int MAX_STAT = 3;
-    private final int MIN_STAT = 1;
+    private final int MAX_STAT = 4;
+    private final int MIN_STAT = 2;
     
     private String name;
     private int attack;
@@ -17,8 +17,8 @@ public abstract class Peon extends Enemy {
     }
     
     public int takeTurn() {
-        if (Math.random() < .15) {
-            System.out.println(this.getName() + " missed!");
+        if (Math.random() <= .15) {
+            System.out.println(this.getName() + " missed!\n");
             return 0;
         }
         return useAttack();
@@ -27,7 +27,7 @@ public abstract class Peon extends Enemy {
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
-            return attack * 2;
+            return (int) (attack * 1.5);
         } else {
             return attack;
         }

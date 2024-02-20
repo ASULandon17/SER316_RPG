@@ -1,6 +1,7 @@
 package decoratorPattern;
 
 import equipment.Equipment;
+import facadePattern.TextBlocks;
 
 public abstract class Player {
     
@@ -52,7 +53,7 @@ public abstract class Player {
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
-            return this.getAttack() * 2;
+            return (int) (this.getAttack() * 1.5);
         } else {
             return this.getAttack();
         }
@@ -63,8 +64,8 @@ public abstract class Player {
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             usePotion();
             return 0;
-        } else if (Math.random() < .15) {
-            System.out.println(this.getName() + " missed!");
+        } else if (Math.random() <= .1) {
+            System.out.println(this.getName() + " missed!\n");
             return 0;
         //otherwise just attack
         } else {
@@ -77,8 +78,9 @@ public abstract class Player {
             return false;
         }
         potion--; //deprecate potion count
-        health += (int) Math.ceil(hitPoints * .33); //restore 1/3 of total HP
+        health += (int) Math.ceil(hitPoints * .5); //restore 1/2 of total HP
         health = health > hitPoints ? hitPoints : health; //health can't exceed HP
+        System.out.println(this.getName() + " used a potion and was restored to " + health + " health!\n");
         return true;
     }
     
@@ -141,6 +143,7 @@ public abstract class Player {
     }
     
     public void equip(Equipment equipment) {
+        TextBlocks.equipped(this, equipment);
         this.attack += equipment.getAttackBuff();
         this.defense += equipment.getDefenseBuff();
         this.speed += equipment.getSpeedBuff();

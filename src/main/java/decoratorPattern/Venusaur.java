@@ -7,7 +7,7 @@ public class Venusaur extends EvolutionDecorator {
     }
     
     public int getAttack() {
-        return (int) Math.floor((super.getAttack() * 1.15));
+        return (int) Math.floor((super.getAttack() * 1.1));
     }
     
     public int getDefense() {
@@ -27,7 +27,7 @@ public class Venusaur extends EvolutionDecorator {
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((super.getPowerPoints() * 1.15));
+        return (int) Math.floor((super.getPowerPoints() * 1.1));
     }
     
     public int takeTurn() {
@@ -44,7 +44,7 @@ public class Venusaur extends EvolutionDecorator {
             int newHealth = heal + this.getHealth() > hP ? hP : heal + this.getHealth();
             this.setHealth(newHealth);
             System.out.println(this.getName() + " recovered " + heal + " HP!");
-            return (int) Math.ceil(damage * 1.75);
+            return (int) Math.ceil(damage * 1.2);
         } else {
             return damage;
         }

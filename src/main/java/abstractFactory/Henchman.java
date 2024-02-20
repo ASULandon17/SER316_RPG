@@ -1,8 +1,8 @@
 package abstractFactory;
 public abstract class Henchman extends Enemy {
     
-    private final int MAX_STAT = 5;
-    private final int MIN_STAT = 2;
+    private final int MAX_STAT = 6;
+    private final int MIN_STAT = 4;
     
     private String name;
     private int attack;
@@ -24,8 +24,8 @@ public abstract class Henchman extends Enemy {
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             useHitPotion();
             return 0;
-        } else if (Math.random() < .10) {
-            System.out.println(this.getName() + " missed!");
+        } else if (Math.random() <= .10) {
+            System.out.println(this.getName() + " missed!\n");
             return 0;
         } else {
             return useAttack();
@@ -35,7 +35,7 @@ public abstract class Henchman extends Enemy {
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
-            return attack * 2;
+            return (int) (attack * 1.5);
         } else {
             return attack;
         }
@@ -45,8 +45,9 @@ public abstract class Henchman extends Enemy {
         if (potion > 0) {
             potion--;
             potion--; //deprecate potion count
-            health += (int) Math.ceil(hitPoints * .33); //restore 1/3 of total HP
+            health += (int) Math.ceil(hitPoints * .5); //restore 1/2 of total HP
             health = health > hitPoints ? hitPoints : health; //health can't exceed HP
+            System.out.println(this.getName() + " used a potion and was restored to " + health + " health!\n");
             return true;
         }
         return false;

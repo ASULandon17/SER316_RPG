@@ -27,7 +27,7 @@ public class Blastoise extends EvolutionDecorator {
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((super.getPowerPoints() * 1.2));
+        return (int) Math.floor((super.getPowerPoints() * 1.1));
     }
     
     public int takeTurn() {
@@ -37,7 +37,7 @@ public class Blastoise extends EvolutionDecorator {
         } else if ((this.getEvolution() == 3) && (this.getMana() >= 8) && (Math.random() > 0.50)) {
             System.out.println(this.getName() + " used Hydro Pump!");
             this.setMana(this.getMana() - 8);
-            return (int) Math.ceil(damage * 2);
+            return (int) Math.ceil(damage * 1.25);
         } else {
             return damage;
         }

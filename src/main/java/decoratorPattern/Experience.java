@@ -12,7 +12,7 @@ public class Experience {
      * percentage of the chance that the stat increases by double.
      */
     public static void levelUp(Player player) {
-        if (player.getExperience() > player.getNextLevelExp()) {
+        while (player.getExperience() > player.getNextLevelExp()) {
             switch (player.getPlayerClass()) {
             
             //Att: 50%, Speed: 50%
@@ -84,7 +84,7 @@ public class Experience {
     }
     
     public static Player evolve(Player player) {
-        if (player.getLevel() > 4 && player.getEvolution() == 1) {
+        if (player.getLevel() >= 5 && player.getEvolution() == 1) {
             System.out.println("What?!\n" + player.getName() + " is evolving!");
             player.setEvolution(2);
             switch (player.getPlayerType()) {
@@ -102,7 +102,7 @@ public class Experience {
             }
             TextBlocks.evolve(player);
         }
-        if (player.getLevel() > 10 && player.getEvolution() == 2) {
+        if (player.getLevel() >= 10 && player.getEvolution() == 2) {
             System.out.println("What?!\n" + player.getName() + " is evolving!");
             player.setEvolution(3);
             switch (player.getPlayerType()) {

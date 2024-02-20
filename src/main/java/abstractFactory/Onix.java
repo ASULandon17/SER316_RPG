@@ -23,7 +23,7 @@ public class Onix extends Boss{
         }
         System.out.println("Onix used Slam!");
         //decrement PP
-        setPowerPoints(getPowerPoints() - 3);
+        setMana(getMana() - 4);
         //get damage from a regular attack
         int damage = useAttack();
         //multiply by 1.5 because it's the special attack
@@ -39,7 +39,7 @@ public class Onix extends Boss{
             System.out.println("Onix missed!");
             return 0;
         //use sp.attack ~33% of the time if enough mana 
-        } else if ((getMana() > 3) && (Math.random() > 0.33)) {
+        } else if ((getMana() > 4) && (Math.random() <= 0.2)) {
             return useSpecialAttack();
         //otherwise just attack
         } else {

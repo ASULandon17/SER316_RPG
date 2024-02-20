@@ -18,42 +18,55 @@ public class Battle {
         int round = 1;
         int damage;
         while (victory == false) {
-            if (round == 1 && player.getSpeed() > enemy.getSpeed()) {
+            if (round == 1 && (player.getSpeed() > enemy.getSpeed())) {
+               TextBlocks.playersTurn(player);
                damage = takeDamage(player.takeTurn(), enemy);
-               System.out.println(enemy.getName() + " took " + damage + " damage!");
                if (damage != 0) {
-                   System.out.println(enemy.getName() + " has " + enemy.getHealth() + " health left!");
+                   TextBlocks.playerDoesDamage(player, damage);
+                   if (enemy.getHealth() > 0) {
+                       TextBlocks.enemyHealthLeft(enemy);
+                   } else {
+                       TextBlocks.enemyFainted(player, enemy);
+                   }
                }
                if (enemy.getHealth() < 1) {
                    victory = true;
                    break;
                }
             }
+            TextBlocks.enemiesTurn(enemy);
             damage = takeDamage(enemy.takeTurn(), player);
-            System.out.println(player.getName() + " took " + damage + " damage!");
             if (damage != 0) {
-                System.out.println(player.getName() + " has " + player.getHealth() + " health left!");
+                TextBlocks.enemyDoesDamage(enemy, damage);
+                if (player.getHealth() > 0) {
+                    TextBlocks.playerHealthLeft(player);
+                } else {
+                    TextBlocks.playerFainted(player, enemy);
+                }
             }
             if (player.getHealth() < 1) {
                 victory = false;
                 break;
             }
+            TextBlocks.playersTurn(player);
             damage = takeDamage(player.takeTurn(), enemy);
-            System.out.println(enemy.getName() + " took " + damage + " damage!");
             if (damage != 0) {
-                System.out.println(enemy.getName() + " has " + enemy.getHealth() + " health left!");
+                TextBlocks.playerDoesDamage(player, damage);
+                if (enemy.getHealth() > 0) {
+                    TextBlocks.enemyHealthLeft(enemy);
+                } else {
+                    TextBlocks.enemyFainted(player, enemy);
+                }
             }
             if (enemy.getHealth() < 1) {
                 victory = true;
             }
             round += 1;
         }
-        String message = victory ? player.getName() + " won!" : player.getName() + " fainted!";
-        System.out.println(message);
         if (victory) {
             player.setExperience(player.getExperience() + enemy.getExperience());
         } else {
-            player.setExperience(player.getExperience() + 20);
+            player.setExperience(player.getExperience() + 1);
         }
         return victory;
     }
@@ -64,8 +77,6 @@ public class Battle {
         }
         //factor in characters defense
         int calculatedDamage = (int) Math.ceil(damage - (.1 * enemy.getDefense()));
-        System.out.println("Initial damage: " + damage);
-        System.out.println("Defense: " + enemy.getDefense());
         
         if (calculatedDamage < 1) {
             calculatedDamage = 1;
@@ -80,8 +91,6 @@ public class Battle {
         }
         //factor in characters defense
         int calculatedDamage = (int) Math.ceil(damage - (.1 * player.getDefense()));
-        System.out.println("Initial damage: " + damage);
-        System.out.println(player.getDefense());
         
         if (calculatedDamage < 1) {
             calculatedDamage = 1;

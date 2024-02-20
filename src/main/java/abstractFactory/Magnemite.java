@@ -4,11 +4,11 @@ public class Magnemite extends Peon {
     
     public Magnemite() {
         setName("Magnemite");
-        setAttack(generateRandomStat() * 2);
-        setDefense(generateRandomStat() * 2);
-        setSpeed(generateRandomStat() * 2);
+        setAttack(generateRandomStat() * 3);
+        setDefense(generateRandomStat() * 3);
+        setSpeed(generateRandomStat() * 3);
         setLuck((int) Math.floor(generateRandomStat()));
-        setHitPoints(generateRandomStat() * 5);
+        setHitPoints(generateRandomStat() * 6);
         setHealth(getHitPoints());
     }
     

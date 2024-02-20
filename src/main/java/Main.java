@@ -1,5 +1,6 @@
 import decoratorPattern.Player;
 import facadePattern.Facade;
+import facadePattern.TextBlocks;
 
 public class Main {
     
@@ -21,11 +22,15 @@ public class Main {
                 facade.generateRandomItem(player);
                 if (level > 10) {
                     gym += 1;
-                    level = 1;
-                    System.out.println("Congrats you beat the gym!");
-                    player = facade.generateTopFloor(player);
-                } else if (player.getHealth() <= (player.getHitPoints() * 0.15)) {
-                    System.out.println("You're running low on health, let's go to the PokeCenter!");
+                    if (gym == 6) {
+                        gameWon = true;
+                    } else {
+                        level = 1;
+                        TextBlocks.gymWon();
+                        player = facade.generateTopFloor(player);
+                    }
+                } else if (player.getHealth() <= (player.getHitPoints() * 0.25)) {
+                    TextBlocks.lowOnHealth(player);
                     player = facade.generateTopFloor(player);
                 }
             } else {
@@ -33,7 +38,6 @@ public class Main {
                     //player lost on the final boss
                     break;
                 }
-                System.out.println("The PokeCenter will have you feeling better in no time!");
                 player = facade.generateTopFloor(player);
             }
         }

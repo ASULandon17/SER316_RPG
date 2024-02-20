@@ -4,11 +4,11 @@ public class Machoke extends Peon {
     
     public Machoke() {
         setName("Machoke");
-        setAttack(generateRandomStat() * 5);
-        setDefense(generateRandomStat() * 5);
-        setSpeed(generateRandomStat() * 5);
+        setAttack(generateRandomStat() * 20);
+        setDefense(generateRandomStat() * 20);
+        setSpeed(generateRandomStat() * 15);
         setLuck((int) Math.ceil(generateRandomStat() * 2.5));
-        setHitPoints(generateRandomStat() * 20);
+        setHitPoints(generateRandomStat() * 50);
         setHealth(getHitPoints());
     }
     

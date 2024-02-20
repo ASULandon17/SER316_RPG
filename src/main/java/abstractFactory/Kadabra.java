@@ -4,11 +4,11 @@ public class Kadabra extends Henchman{
     
     public Kadabra() {
         setName("Kadabra");
-        setAttack(generateRandomStat() * 3);
-        setDefense(generateRandomStat() * 3);
-        setSpeed(generateRandomStat() * 3);
+        setAttack(generateRandomStat() * 6);
+        setDefense(generateRandomStat() * 5);
+        setSpeed(generateRandomStat() * 8);
         setLuck((int) Math.floor(generateRandomStat() * 1.5));
-        setHitPoints(generateRandomStat() * 9);
+        setHitPoints(generateRandomStat() * 12);
         setHealth(getHitPoints());
         setPotion(1);
     }

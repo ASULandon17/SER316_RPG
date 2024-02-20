@@ -27,17 +27,17 @@ public class Charizard extends EvolutionDecorator {
     }
     
     public int getPowerPoints() {
-        return (int) Math.floor((super.getPowerPoints() * 1.15));
+        return super.getPowerPoints();
     }
 
     public int takeTurn() {
-        int damage = (int) (super.takeTurn() * 1.5);
+        int damage = (int) (super.takeTurn() * 1.2);
         if (damage == 0) {
             return 0;
         } else if ((super.getEvolution() == 3) && (super.getMana() >= 8) && (Math.random() > 0.50)) {
             System.out.println(super.getName() + " used Fire Blast!");
             this.setMana(super.getMana() - 8);
-            return (int) Math.ceil(damage * 2.25);
+            return (int) Math.ceil(damage * 1.4);
         } else {
             return damage;
         }

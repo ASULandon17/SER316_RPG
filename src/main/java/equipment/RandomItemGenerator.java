@@ -6,9 +6,9 @@ import java.util.List;
 public class RandomItemGenerator {
     
     //Likelihood out of 100 that item will be chose
-    private final static int TIER_FOUR_CHANCE = 2;
-    private final static int TIER_THREE_CHANCE = 10;
-    private final static int TIER_TWO_CHANCE = 20;
+    private final static int TIER_FOUR_CHANCE = 1;
+    private final static int TIER_THREE_CHANCE = 8;
+    private final static int TIER_TWO_CHANCE = 15;
     
     //Lists of items of each tier
     List<Equipment> tierOneItems = new ArrayList<>();

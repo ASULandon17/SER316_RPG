@@ -66,8 +66,9 @@ public class CreatePlayer {
             player = new Squirtle(playerName, classes.get(chosenClass));
             break;
         }
-        System.out.println("Nice! You chose a " + player.getPlayerType().name().toLowerCase()
-                           + "with a " + player.getPlayerClass().name().toLowerCase() + " nature!");
+        TextBlocks.createdPlayer(player);
+        TextBlocks.displayStats(player);
+        TextBlocks.startGame(player);
         return player;
     }
 }
