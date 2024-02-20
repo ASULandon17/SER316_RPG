@@ -5,7 +5,7 @@ package abstractFactory;
  */
 public class Abra extends Peon {
 
-    /*
+    /**
      * initialize enemy with its stats.
      */
     public Abra() {
@@ -18,8 +18,8 @@ public class Abra extends Peon {
         setHealth(getHitPoints());
     }
 
-    /*
-     * provide experience for when enemy is defeated
+    /**
+     * provides experience for when enemy is defeated.
      */
     public int getExperience() {
         return 10;

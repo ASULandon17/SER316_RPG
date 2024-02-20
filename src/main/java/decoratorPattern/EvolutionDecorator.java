@@ -2,12 +2,23 @@ package decoratorPattern;
 
 import equipment.Equipment;
 
+/*
+ * Decorator class for creating evolutions.
+ */
 public abstract class EvolutionDecorator extends Player {
+    //class that will be decorated
     protected Player player;
     
+    /*
+     * Constructor saves class that will be decorated.
+     */
     public EvolutionDecorator(Player player) {
         this.player = player;
     }
+    
+    /*
+     * All methods below pass through data for evolved pokemon
+     */
     
     public int useAttack() {
         return player.useAttack();

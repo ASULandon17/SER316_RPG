@@ -3,8 +3,12 @@ package decoratorPattern;
 import equipment.Equipment;
 import facadePattern.TextBlocks;
 
+/**
+ * Abstract class for creating pokemon user will play with.
+ */
 public abstract class Player {
     
+    //attributes to keep track of pokemon status
     private String name;
     private int attack;
     private int defense;
@@ -26,10 +30,25 @@ public abstract class Player {
     private Equipment armor = null; 
     private Equipment accessory = null; 
     
+    /**
+     * Default constructor so one isn't automatically created.
+     */
     public Player() {
         
     }
     
+    /**
+     * Constructor for creating the player's pokemon.
+     * @param name The name the player chose.
+     * @param att Pokemons attack stat
+     * @param def Pokemons defense stat
+     * @param spd Pokemons speed stat
+     * @param luck Pokemons luck stat
+     * @param hP Pokemons hitpoints stat
+     * @param pP Pokemons powerpoints stat
+     * @param pType Type of pokemon
+     * @param pClass class/nature of pokemon
+     */
     public Player(String name, int att, int def, int spd, int luck, int hP, int pP,
             PlayerType pType, PlayerClass pClass) {
         this.name = name;
@@ -50,6 +69,10 @@ public abstract class Player {
         this.playerClass = pClass;
     }
     
+    /**
+     * logic for when a player uses attack.
+     * @return damage inflicted based off pokemons attack
+     */
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
@@ -59,6 +82,10 @@ public abstract class Player {
         }
     }
     
+    /**
+     * Logic for taking a turn in battle.
+     * @return amount of damage done (0 if potion used)
+     */
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
@@ -73,6 +100,10 @@ public abstract class Player {
         }
     }
     
+    /**
+     * Logic for using a potion to heal
+     * @return boolean for if a potion was able to be used
+     */
     public boolean usePotion() {
         if (potion < 1) { //make sure there are potions to use
             return false;
@@ -84,12 +115,20 @@ public abstract class Player {
         return true;
     }
     
+    /**
+     * Logic for checking if a pokemon can level up.
+     */
     public void levelUp() {
         while (experience >= nextLevelExp) {
             Experience.levelUp(this);
         }
     }
     
+    /**
+     * Logic for adding a piece of equipment to a players inventory.
+     * @param equipment the item that is to be added to inventory
+     * @return boolean if item is added
+     */
     public boolean addEquipment(Equipment equipment) {
         switch (equipment.getSlot()) {
         
@@ -142,6 +181,10 @@ public abstract class Player {
         }
     }
     
+    /**
+     * Logic for increasing stats by item equipped.
+     * @param equipment item thats stat buffs are being applied
+     */
     public void equip(Equipment equipment) {
         TextBlocks.equipped(this, equipment);
         this.attack += equipment.getAttackBuff();
@@ -152,6 +195,10 @@ public abstract class Player {
         this.powerPoints += equipment.getPowerPointsBuff();
     }
     
+    /**
+     * Logic for decreasing stats by item unequipped.
+     * @param equipment item thats stat buffs are being removed
+     */
     public void unequip(Equipment equipment) {
         this.attack -= equipment.getAttackBuff();
         this.defense -= equipment.getDefenseBuff();
@@ -160,6 +207,10 @@ public abstract class Player {
         this.hitPoints -= equipment.getHitPointsBuff();
         this.powerPoints -= equipment.getPowerPointsBuff();
     }
+    
+    /*
+     * Following methods are getters and setters for attributes
+     */
     
     public String getName() {
         return name;

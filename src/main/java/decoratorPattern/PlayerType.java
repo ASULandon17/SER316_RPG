@@ -1,5 +1,8 @@
 package decoratorPattern;
 
+/**
+ * Enum for the possible types a players can be.
+ */
 public enum PlayerType {
     BULBASAUR,
     IVYSAUR,
