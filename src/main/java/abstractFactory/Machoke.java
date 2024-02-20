@@ -11,4 +11,8 @@ public class Machoke extends Peon {
         setHitPoints(generateRandomStat() * 20);
         setHealth(getHitPoints());
     }
+    
+    public int getExperience() {
+        return 20;
+    }
 }

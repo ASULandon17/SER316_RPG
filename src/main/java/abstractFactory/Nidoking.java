@@ -38,11 +38,18 @@ public class Nidoking extends Boss{
             useHitPotion();
             return 0;
         //use sp.attack ~33% of the time if enough mana 
+        } else if (Math.random() < .05) {
+            System.out.println("Nidoking missed!");
+            return 0;
         } else if ((getMana() >= 6) && (Math.random() > 0.33)) {
             return useSpecialAttack();
         //otherwise just attack
         } else {
             return useAttack();
         }
+    }
+    
+    public int getExperience() {
+        return 160;
     }
 }

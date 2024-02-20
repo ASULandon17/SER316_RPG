@@ -35,6 +35,9 @@ public class Onix extends Boss{
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             useHitPotion();
             return 0;
+        } else if (Math.random() < .05) {
+            System.out.println("Onix missed!");
+            return 0;
         //use sp.attack ~33% of the time if enough mana 
         } else if ((getMana() > 3) && (Math.random() > 0.33)) {
             return useSpecialAttack();
@@ -42,5 +45,9 @@ public class Onix extends Boss{
         } else {
             return useAttack();
         }
+    }
+    
+    public int getExperience() {
+        return 10;
     }
 }

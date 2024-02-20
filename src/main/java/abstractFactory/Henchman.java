@@ -19,20 +19,13 @@ public abstract class Henchman extends Enemy {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
     }
     
-    public int takeDamage(int damage) {
-        //factor in characters defense
-        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
-        
-        //1 damage must always be dealt
-        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
-        this.health -= calculatedDamage;
-        return calculatedDamage;
-    }
-    
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             useHitPotion();
+            return 0;
+        } else if (Math.random() < .10) {
+            System.out.println(this.getName() + " missed!");
             return 0;
         } else {
             return useAttack();
@@ -51,7 +44,9 @@ public abstract class Henchman extends Enemy {
     public boolean useHitPotion() {
         if (potion > 0) {
             potion--;
-            hitPoints += 20;
+            potion--; //deprecate potion count
+            health += (int) Math.ceil(hitPoints * .33); //restore 1/3 of total HP
+            health = health > hitPoints ? hitPoints : health; //health can't exceed HP
             return true;
         }
         return false;

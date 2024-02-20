@@ -30,6 +30,9 @@ public class Arcanine extends Boss{
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             useHitPotion();
             return 0;
+        } else if (Math.random() < .05) {
+            System.out.println("Arcanine missed!");
+            return 0;
         //use sp.attack ~33% of the time if enough mana 
         } else if ((getMana() >= 5) && (Math.random() > 0.33)) {
             return useSpecialAttack();
@@ -37,5 +40,9 @@ public class Arcanine extends Boss{
         } else {
             return useAttack();
         }
+    }
+    
+    public int getExperience() {
+        return 80;
     }
 }

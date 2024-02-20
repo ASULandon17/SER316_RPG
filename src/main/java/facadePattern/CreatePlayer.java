@@ -1,3 +1,4 @@
+package facadePattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,8 @@ public class CreatePlayer {
             player = new Squirtle(playerName, classes.get(chosenClass));
             break;
         }
+        System.out.println("Nice! You chose a " + player.getPlayerType().name().toLowerCase()
+                           + "with a " + player.getPlayerClass().name().toLowerCase() + " nature!");
         return player;
     }
 }

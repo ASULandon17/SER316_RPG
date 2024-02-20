@@ -11,4 +11,8 @@ public class Diglett extends Peon {
         setHitPoints(generateRandomStat() * 3);
         setHealth(getHitPoints());
     }
+    
+    public int getExperience() {
+        return 1;
+    }
 }

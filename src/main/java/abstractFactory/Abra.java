@@ -11,4 +11,8 @@ public class Abra extends Peon {
         setHitPoints(generateRandomStat() * 9);
         setHealth(getHitPoints());
     }
+    
+    public int getExperience() {
+        return 10;
+    }
 }

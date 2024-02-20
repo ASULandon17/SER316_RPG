@@ -11,4 +11,8 @@ public class Magnemite extends Peon {
         setHitPoints(generateRandomStat() * 5);
         setHealth(getHitPoints());
     }
+    
+    public int getExperience() {
+        return 5;
+    }
 }

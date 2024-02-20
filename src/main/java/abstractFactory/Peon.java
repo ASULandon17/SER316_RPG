@@ -17,17 +17,11 @@ public abstract class Peon extends Enemy {
     }
     
     public int takeTurn() {
+        if (Math.random() < .15) {
+            System.out.println(this.getName() + " missed!");
+            return 0;
+        }
         return useAttack();
-    }
-    
-    public int takeDamage(int damage) {
-        //factor in characters defense
-        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
-        
-        //1 damage must always be dealt
-        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
-        this.health -= calculatedDamage;
-        return calculatedDamage;
     }
     
     public int useAttack() {

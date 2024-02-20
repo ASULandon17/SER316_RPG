@@ -63,22 +63,14 @@ public abstract class Player {
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
             usePotion();
             return 0;
+        } else if (Math.random() < .15) {
+            System.out.println(this.getName() + " missed!");
+            return 0;
         //otherwise just attack
         } else {
             return useAttack();
         }
     }
-    
-    /*public int takeDamage(int damage) {
-        //factor in characters defense
-        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
-        System.out.println(this.getDefense());
-        
-        //1 damage must always be dealt
-        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
-        this.health -= calculatedDamage;
-        return calculatedDamage;
-    }*/
     
     public boolean usePotion() {
         if (potion < 1) { //make sure there are potions to use

@@ -12,4 +12,8 @@ public class Geodude extends Henchman{
         setHealth(getHitPoints());
         setPotion(1);
     }
+    
+    public int getExperience() {
+        return 5;
+    }
 }

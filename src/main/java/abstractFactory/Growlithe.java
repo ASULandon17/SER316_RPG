@@ -11,4 +11,8 @@ public class Growlithe extends Peon {
         setHitPoints(generateRandomStat() * 14);
         setHealth(getHitPoints());
     }
+    
+    public int getExperience() {
+        return 15;
+    }
 }

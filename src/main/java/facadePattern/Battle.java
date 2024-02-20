@@ -1,3 +1,4 @@
+package facadePattern;
 import abstractFactory.Enemy;
 import decoratorPattern.Player;
 
@@ -49,6 +50,11 @@ public class Battle {
         }
         String message = victory ? player.getName() + " won!" : player.getName() + " fainted!";
         System.out.println(message);
+        if (victory) {
+            player.setExperience(player.getExperience() + enemy.getExperience());
+        } else {
+            player.setExperience(player.getExperience() + 20);
+        }
         return victory;
     }
     
@@ -61,6 +67,9 @@ public class Battle {
         System.out.println("Initial damage: " + damage);
         System.out.println("Defense: " + enemy.getDefense());
         
+        if (calculatedDamage < 1) {
+            calculatedDamage = 1;
+        }
         enemy.setHealth(enemy.getHealth() - calculatedDamage);
         return calculatedDamage;
     }
@@ -74,6 +83,9 @@ public class Battle {
         System.out.println("Initial damage: " + damage);
         System.out.println(player.getDefense());
         
+        if (calculatedDamage < 1) {
+            calculatedDamage = 1;
+        }
         player.setHealth(player.getHealth() - calculatedDamage);
         return calculatedDamage;
     }

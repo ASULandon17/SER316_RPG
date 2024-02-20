@@ -18,18 +18,6 @@ public abstract class Boss extends Enemy {
         return (int) ((Math.random() * (MAX_STAT - MIN_STAT)) + MIN_STAT);
     }
     
-    /*public int takeDamage(int damage) {
-        System.out.println("Player did " + damage + " before defense");
-        //factor in characters defense
-        int calculatedDamage = (int) Math.floor(damage - (.1 * defense));
-        
-        //1 damage must always be dealt
-        calculatedDamage = calculatedDamage > 0 ? calculatedDamage : 1;
-        this.health -= calculatedDamage;
-        System.out.println("Nidoking should take " + calculatedDamage);
-        return calculatedDamage;
-    }*/
-    
     public int useAttack() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= luck) {
             System.out.println("It's a critical hit!");
