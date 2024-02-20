@@ -1,7 +1,10 @@
 package abstractFactory;
 
 public class Diglett extends Peon {
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Diglett() {
         setName("Diglett");
         setAttack(generateRandomStat());
@@ -11,7 +14,10 @@ public class Diglett extends Peon {
         setHitPoints(generateRandomStat() * 3);
         setHealth(getHitPoints());
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 1;
     }

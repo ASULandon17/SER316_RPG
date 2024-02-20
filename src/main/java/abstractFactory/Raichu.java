@@ -2,6 +2,9 @@ package abstractFactory;
 
 public class Raichu extends Boss{
     
+    /*
+     * initialize enemy with its stats.
+     */
     public Raichu() {
         setName("Raichu");
         setAttack(generateRandomStat() * 3);
@@ -15,6 +18,9 @@ public class Raichu extends Boss{
         setPotion(1);
     }
     
+    /*
+     * create special attack because enemy is a boss.
+     */
     public int useSpecialAttack() {
         //check if enough PP is available
         if (getPowerPoints() < 5) {
@@ -29,7 +35,10 @@ public class Raichu extends Boss{
         //multiply by 1.4 because it's the special attack
         return (int) Math.floor(damage * 1.4);
     }
-    
+
+    /*
+     * create logic for taking a turn in battle.
+     */
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
@@ -46,7 +55,10 @@ public class Raichu extends Boss{
             return useAttack();
         }
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 20;
     }

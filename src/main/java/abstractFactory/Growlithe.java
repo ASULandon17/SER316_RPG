@@ -1,7 +1,10 @@
 package abstractFactory;
 
 public class Growlithe extends Peon {
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Growlithe() {
         setName("Growlithe");
         setAttack(generateRandomStat() * 8);
@@ -11,7 +14,10 @@ public class Growlithe extends Peon {
         setHitPoints(generateRandomStat() * 18);
         setHealth(getHitPoints());
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 15;
     }

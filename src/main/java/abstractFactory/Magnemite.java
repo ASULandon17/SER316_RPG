@@ -1,7 +1,10 @@
 package abstractFactory;
 
 public class Magnemite extends Peon {
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Magnemite() {
         setName("Magnemite");
         setAttack(generateRandomStat() * 3);
@@ -11,7 +14,10 @@ public class Magnemite extends Peon {
         setHitPoints(generateRandomStat() * 6);
         setHealth(getHitPoints());
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 5;
     }

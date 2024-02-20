@@ -2,6 +2,9 @@ package abstractFactory;
 
 public class Nidoking extends Boss{
     
+    /*
+     * initialize enemy with its stats.
+     */
     public Nidoking() {
         setName("Nidoking");
         setAttack(generateRandomStat() * 12);
@@ -15,6 +18,9 @@ public class Nidoking extends Boss{
         setPotion(1);
     }
     
+    /*
+     * create special attack because enemy is a boss.
+     */
     public int useSpecialAttack() {
         System.out.println("Nidoking used Earthquake!");
         //decrement PP
@@ -32,6 +38,9 @@ public class Nidoking extends Boss{
         return damage;
     }
     
+    /*
+     * create logic for taking a turn in battle.
+     */
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
@@ -49,6 +58,9 @@ public class Nidoking extends Boss{
         }
     }
     
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 160;
     }

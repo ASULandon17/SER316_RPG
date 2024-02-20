@@ -1,7 +1,10 @@
 package abstractFactory; 
 
 public class Arcanine extends Boss{
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Arcanine() {
         setName("Arcanine");
         setAttack(generateRandomStat() * 10);
@@ -14,7 +17,10 @@ public class Arcanine extends Boss{
         setMana(getPowerPoints());
         setPotion(1);
     }
-    
+
+    /*
+     * create special attack because enemy is a boss.
+     */
     public int useSpecialAttack() {
         System.out.println("Arcanine used Flamethrower!");
         //decrement PP
@@ -24,7 +30,10 @@ public class Arcanine extends Boss{
         //give bonus damage because it's the special attack
         return (int) Math.ceil(damage * 1.4);
     }
-    
+
+    /*
+     * create logic for taking a turn in battle.
+     */
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
@@ -41,7 +50,10 @@ public class Arcanine extends Boss{
             return useAttack();
         }
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 80;
     }

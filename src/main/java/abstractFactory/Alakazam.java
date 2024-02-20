@@ -2,6 +2,9 @@ package abstractFactory;
 
 public class Alakazam extends Boss{
     
+    /*
+     * initialize enemy with its stats.
+     */
     public Alakazam() {
         setName("Alakazam");
         setAttack(generateRandomStat() * 6);
@@ -15,6 +18,9 @@ public class Alakazam extends Boss{
         setPotion(1);
     }
     
+    /*
+     * create special attack because enemy is a boss.
+     */
     public int useSpecialAttack() {
         System.out.println("Alakazam used Psychic!");
         //decrement PP
@@ -25,6 +31,9 @@ public class Alakazam extends Boss{
         return (int) Math.ceil(damage * 1.6);
     }
     
+    /*
+     * create logic for taking a turn in battle.
+     */
     public int takeTurn() {
         //use a health potion if health is low
         if ((getHealth() < (getHitPoints() * 0.5)) && getPotion() > 0) {
@@ -42,6 +51,9 @@ public class Alakazam extends Boss{
         }
     }
     
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 40;
     }

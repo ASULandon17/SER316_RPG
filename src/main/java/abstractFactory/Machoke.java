@@ -1,7 +1,10 @@
 package abstractFactory;
 
 public class Machoke extends Peon {
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Machoke() {
         setName("Machoke");
         setAttack(generateRandomStat() * 20);
@@ -11,7 +14,10 @@ public class Machoke extends Peon {
         setHitPoints(generateRandomStat() * 50);
         setHealth(getHitPoints());
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 20;
     }

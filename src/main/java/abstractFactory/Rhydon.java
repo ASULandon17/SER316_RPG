@@ -1,7 +1,10 @@
 package abstractFactory; 
 
 public class Rhydon extends Henchman{
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Rhydon() {
         setName("Rhydon");
         setAttack(generateRandomStat() * 16);
@@ -12,7 +15,10 @@ public class Rhydon extends Henchman{
         setHealth(getHitPoints());
         setPotion(2);
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 80;
     }

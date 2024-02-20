@@ -1,7 +1,10 @@
 package abstractFactory; 
 
 public class Geodude extends Henchman{
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Geodude() {
         setName("Geodude");
         setAttack(generateRandomStat());
@@ -12,7 +15,10 @@ public class Geodude extends Henchman{
         setHealth(getHitPoints());
         setPotion(1);
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 5;
     }

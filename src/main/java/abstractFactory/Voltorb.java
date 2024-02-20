@@ -1,7 +1,10 @@
 package abstractFactory; 
 
 public class Voltorb extends Henchman{
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Voltorb() {
         setName("Voltorb");
         setAttack(generateRandomStat() * 3);
@@ -12,7 +15,10 @@ public class Voltorb extends Henchman{
         setHealth(getHitPoints());
         setPotion(1);
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 10;
     }

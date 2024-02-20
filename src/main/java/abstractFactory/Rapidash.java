@@ -1,7 +1,10 @@
 package abstractFactory; 
 
 public class Rapidash extends Henchman{
-    
+
+    /*
+     * initialize enemy with its stats.
+     */
     public Rapidash() {
         setName("Rapidash");
         setAttack(generateRandomStat() * 9);
@@ -12,7 +15,10 @@ public class Rapidash extends Henchman{
         setHealth(getHitPoints());
         setPotion(1);
     }
-    
+
+    /*
+     * provide experience for when enemy is defeated
+     */
     public int getExperience() {
         return 40;
     }
