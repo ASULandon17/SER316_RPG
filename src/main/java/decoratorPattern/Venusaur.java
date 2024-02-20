@@ -1,35 +1,59 @@
 package decoratorPattern;
 
 public class Venusaur extends EvolutionDecorator {
-    
+
+    /*
+     * Set the class that is to be decorated.
+     */
     public Venusaur(Player player) {
         super(player);
     }
-    
+
+    /*
+     * pass through stat with decoration made.
+     */
     public int getAttack() {
         return (int) Math.floor((super.getAttack() * 1.1));
     }
-    
+
+    /*
+     * pass through stat with decoration made.
+     */
     public int getDefense() {
         return (int) Math.floor((super.getDefense() * 1.2));
     }
-    
+
+    /*
+     * pass through stat as is.
+     */
     public int getSpeed() {
         return super.getSpeed();
     }
-    
+
+    /*
+     * pass through stat with decoration made.
+     */
     public int getLuck() {
         return (int) Math.floor((super.getLuck() * 1.15));
     }
-    
+
+    /*
+     * pass through stat with decoration made.
+     */
     public int getHitPoints() {
         return (int) Math.floor((super.getHitPoints() * 1.3));
     }
-    
+
+    /*
+     * pass through stat with decoration made.
+     */
     public int getPowerPoints() {
         return (int) Math.floor((super.getPowerPoints() * 1.1));
     }
-    
+
+    /*
+     * Create update logic for taking a turn in battle.
+     */
     public int takeTurn() {
         int damage = (int) (super.takeTurn() * 1.15);
         if (damage == 0) {
@@ -49,7 +73,10 @@ public class Venusaur extends EvolutionDecorator {
             return damage;
         }
     }
-    
+
+    /*
+     * Update PlayerType to reflect new evolution.
+     */
     public PlayerType getPlayerType() {
         return PlayerType.VENUSAUR;
     }
