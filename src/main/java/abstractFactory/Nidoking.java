@@ -18,7 +18,7 @@ public class Nidoking extends Boss{
         setPowerPoints(generateRandomStat() * 2);
         setHealth(getHitPoints());
         setMana(getPowerPoints());
-        setPotion(1);
+        setPotion(2);
     }
     
     /*

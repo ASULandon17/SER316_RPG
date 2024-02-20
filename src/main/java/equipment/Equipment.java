@@ -1,6 +1,11 @@
 package equipment;
+
+/**
+ * Abstract class that is the blueprint for all equipment.
+ */
 public abstract class Equipment {
     
+    //attributes that keep track of equipments stat buffs
     private int attackBuff;
     private int defenseBuff;
     private int speedBuff;
@@ -11,6 +16,7 @@ public abstract class Equipment {
     private Slot slot;
     private String weaponName;
     
+    //enum of slots in inventory that equipment can be stored.
     public enum Slot {
         WEAPON,
         SHIELD,
@@ -18,6 +24,17 @@ public abstract class Equipment {
         ACCESSORY
     }
     
+    /**
+     * Constructor for keeping track of equipment buffs and status.
+     * @param attB attack buff
+     * @param defB defense buff
+     * @param spdB speed buff
+     * @param luckB luck buff
+     * @param hitB hitpoint buff
+     * @param powB powerpoint buff
+     * @param lvl the level of the equipment (higher is better)
+     * @param slot the slot in a pokemons inventory equipment can be stored
+     */
     public Equipment(int attB, int defB, int spdB, int luckB,
                      int hitB, int powB, int lvl, Slot slot) {
         
@@ -30,53 +47,31 @@ public abstract class Equipment {
         this.level = lvl;
         this.slot = slot;
     }
+    
+    //the following methods are getters and setters
 
     public int getAttackBuff() {
         return attackBuff;
-    }
-
-    public void setAttackBuff(int attackBuff) {
-        this.attackBuff = attackBuff;
     }
 
     public int getDefenseBuff() {
         return defenseBuff;
     }
 
-    public void setDefenseBuff(int defenseBuff) {
-        this.defenseBuff = defenseBuff;
-    }
-
     public int getSpeedBuff() {
         return speedBuff;
-    }
-
-    public void setSpeedBuff(int speedBuff) {
-        this.speedBuff = speedBuff;
     }
 
     public int getLuckBuff() {
         return luckBuff;
     }
 
-    public void setLuckBuff(int luckBuff) {
-        this.luckBuff = luckBuff;
-    }
-
     public int getHitPointsBuff() {
         return hitPointsBuff;
     }
 
-    public void setHitPointsBuff(int hitPointsBuff) {
-        this.hitPointsBuff = hitPointsBuff;
-    }
-
     public int getPowerPointsBuff() {
         return powerPointsBuff;
-    }
-
-    public void setPowerPointsBuff(int powerPointsBuff) {
-        this.powerPointsBuff = powerPointsBuff;
     }
     
     public int getLevel() {
@@ -90,8 +85,8 @@ public abstract class Equipment {
     public String getWeaponName() {
         return this.weaponName;
     }
-
-    public void setWeaponName(String weaponName) {
-        this.weaponName = weaponName;
+    
+    public void setWeaponName(String name) {
+        this.weaponName = name;
     }
 }

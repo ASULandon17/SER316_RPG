@@ -26,16 +26,18 @@ public class RandomItemGenerator {
         addTierFourItems();
     }
     
-    /*
+    /**
      * statically returns a random item.
+     * @return a random item
      */
     public static Equipment getItem() {
         Equipment item = new RandomItemGenerator().generateRandomItem();
         return item;
     }
     
-    /*
+    /**
      * generates an item based on the likelihood of being chosen
+     * @return the item that was generated
      */
     public Equipment generateRandomItem() {
         if ((int) ((Math.random() * (100 - 1)) + 1) <= TIER_FOUR_CHANCE) {
@@ -49,7 +51,7 @@ public class RandomItemGenerator {
         }
     }
     
-    /*
+    /**
      * Adds correct items to the tier one list
      */
     private void addTierOneItems() {
@@ -59,7 +61,7 @@ public class RandomItemGenerator {
         tierOneItems.add(new FleetFootCharm());
     }
     
-    /*
+    /**
      * Adds correct items to the tier two list
      */
     private void addTierTwoItems() {
@@ -69,7 +71,7 @@ public class RandomItemGenerator {
         tierTwoItems.add(new HermesLuckyTalisman());
     }
     
-    /*
+    /**
      * Adds correct items to the tier three list
      */
     private void addTierThreeItems() {
@@ -79,7 +81,7 @@ public class RandomItemGenerator {
         tierThreeItems.add(new BruiserGloves());
     }
     
-    /*
+    /**
      * Adds correct items to the tier four list
      */
     private void addTierFourItems() {
