@@ -2,17 +2,29 @@ package facadePattern;
 import abstractFactory.Enemy;
 import decoratorPattern.Player;
 
+/**
+ * class for simulating a battle between two pokemon.
+ */
 public class Battle {
     
+    //the pokemon in the battle
     Player player;
     Enemy enemy;
     
+    /**
+     * Constructor for populating the pokemon in the battle.
+     * @param player players pokemon
+     * @param enemy enemy that players pokemon will be fighting
+     */
     public Battle(Player player, Enemy enemy) {
         this.player = player;
         this.enemy = enemy;
     }
     
-    //stages a battle until one is victorious
+    /**
+     * players take turns until one has 0 or less health.
+     * @return boolean based on whether or not player won
+     */
     public boolean conductBattle() {
         boolean victory = false;
         int round = 1;
@@ -71,6 +83,12 @@ public class Battle {
         return victory;
     }
     
+    /**
+     * Method for calculating damage an enemy takes based on its defense stat.
+     * @param damage the initial amount of damage dealt
+     * @param enemy the pokemon that is taking the damage
+     * @return amount of damage sustained after defense is factored in
+     */
     public int takeDamage(int damage, Enemy enemy) {
         if (damage == 0) {
             return 0;
@@ -85,6 +103,12 @@ public class Battle {
         return calculatedDamage;
     }
     
+    /**
+     * Method for calculating damage a player takes based on its defense stat.
+     * @param damage the initial amount of damage dealt
+     * @param enemy the pokemon that is taking the damage
+     * @return amount of damage sustained after defense is factored in
+     */
     public int takeDamage(int damage, Player player) {
         if (damage == 0) {
             return 0;
