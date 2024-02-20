@@ -1,6 +1,15 @@
 package abstractFactory;
 
+/*
+ * Abstract class for creating a pokemon with factory.
+ */
 public abstract class Enemy {
+    
+    /*
+     * These are all abstract methods that must be implemented by the
+     * concrete 'enemy' objects that are created by the factories.
+     * They are called on the enemy class so they're present here.
+     */
     
     public abstract int takeTurn();
     
