@@ -6,9 +6,9 @@ import java.util.List;
 public class RandomItemGenerator {
     
     //Likelihood out of 100 that item will be chose
-    private final static int TIER_FOUR_CHANCE = 1;
-    private final static int TIER_THREE_CHANCE = 8;
-    private final static int TIER_TWO_CHANCE = 15;
+    private static final int TIER_FOUR_CHANCE = 1;
+    private static final int TIER_THREE_CHANCE = 8;
+    private static final int TIER_TWO_CHANCE = 15;
     
     //Lists of items of each tier
     List<Equipment> tierOneItems = new ArrayList<>();
@@ -36,7 +36,7 @@ public class RandomItemGenerator {
     }
     
     /**
-     * generates an item based on the likelihood of being chosen
+     * generates an item based on the likelihood of being chosen.
      * @return the item that was generated
      */
     public Equipment generateRandomItem() {
@@ -52,7 +52,7 @@ public class RandomItemGenerator {
     }
     
     /**
-     * Adds correct items to the tier one list
+     * Adds correct items to the tier one list.
      */
     private void addTierOneItems() {
         tierOneItems.add(new IronDagger());
@@ -62,7 +62,7 @@ public class RandomItemGenerator {
     }
     
     /**
-     * Adds correct items to the tier two list
+     * Adds correct items to the tier two list.
      */
     private void addTierTwoItems() {
         tierTwoItems.add(new PolishedSilverBlade());
@@ -72,7 +72,7 @@ public class RandomItemGenerator {
     }
     
     /**
-     * Adds correct items to the tier three list
+     * Adds correct items to the tier three list.
      */
     private void addTierThreeItems() {
         tierThreeItems.add(new LegendaryGildedBroadsword());
@@ -82,7 +82,7 @@ public class RandomItemGenerator {
     }
     
     /**
-     * Adds correct items to the tier four list
+     * Adds correct items to the tier four list.
      */
     private void addTierFourItems() {
         tierFourItems.add(new TheOneRing());

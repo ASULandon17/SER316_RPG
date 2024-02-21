@@ -1,14 +1,16 @@
-import decoratorPattern.Player;
-import facadePattern.Facade;
-import facadePattern.TextBlocks;
+import decoratorpattern.Player;
+import facadepattern.Facade;
+import facadepattern.TextBlocks;
 
 public class Main {
     
     public static void main(String[] args) {
         
         //initialize variables
-        int gym = 1, level = 1;
-        boolean gameWon = false, victorious = false;
+        int gym = 1;
+        int level = 1;
+        boolean gameWon = false;
+        boolean victorious = false;
         Facade facade = new Facade();
         
         //begin game by creating player
@@ -38,7 +40,7 @@ public class Main {
                     player = facade.generateTopFloor(player);
                 }
             } else {
-              //if final battle is lost
+                //if final battle is lost
                 if (gym == 5 && level == 10) {
                     break;
                 }
