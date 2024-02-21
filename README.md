@@ -26,11 +26,14 @@ To beat the game the Pokemon must win every battle including the final boss at l
   defeated by the final boss at 5-10.
 
 
+
 Design Patterns:
 
 The implementation of this project uses 3 of the Gang of Four design principles.
 
+
 Abstract Factory:
+
 I needed to create many enemy pokemon in order to populate the gyms and have something for the player to battle against.
 In order to do this I used the Abstract Factory pattern. I created a 'GymFactory' that was my abstract factory and then
   I created a class for each gym and they acted as my concrete factories.
@@ -42,6 +45,7 @@ It also allowed the code to just recognize that the variable was 'Enemy' type so
   using the same code even though they seemed different to me.
 
 Decorator pattern:
+
 One of the more interesting parts of this project for me was learning how to get the Pokemon to evolve.
 In order to acheive this I used the Decorator pattern. 
 By creating an abstract class 'EvolutionDecorator' that extended from the abstract class 'Player', but also stored a reference to 'Player'
@@ -52,6 +56,7 @@ The 'evolved' decorator classes for each pokemon also contained logic to take a 
 attribute for the pokemones type to reflect its new evolved state e.g. Charizard instead of Charmander.
 
 Facade pattern:
+
 The final design pattern I used was facade.
 Due to the complexity of the code to implement the previously discussed design patterns and the many classes needed to populate a game with all
   the players, enemies, items necessary I felt that the actual logic in main needed to be simplified and look clean in order to understand what is
@@ -64,6 +69,7 @@ The facade class made it so it is just a method to create the player, a loop to 
   on if the player won or lost.
 
 Sources:
+
 I leaned heavily on the website refactoring.guru(https://refactoring.guru/) this website had easy to understand explanations of each of the design patterns
   along with pseudocode and code examples which I found very helpful. They also offered them in Java which is nice, a lot of the examples I found online were
   in other languages so having the option to see the examples in Java made them just a bit more digestible. 
