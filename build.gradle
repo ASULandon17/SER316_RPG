@@ -25,6 +25,11 @@ dependencies {
 
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
+
+	classDirectories.setFrom(
+	    fileTree(dir: "build/classes/java/main")
+		.filter({file -> !file.name.contains('Main.class')})
+    )
 }
 jacoco {
     toolVersion = "0.8.8"
