@@ -26,7 +26,7 @@ public class Onix extends Boss {
      */
     public int useSpecialAttack() {
         //check if enough PP is available
-        if (getPowerPoints() < 3) {
+        if (getMana() < 3) {
             System.out.println("Not enough PP for this move!");
             return -1;
         }
