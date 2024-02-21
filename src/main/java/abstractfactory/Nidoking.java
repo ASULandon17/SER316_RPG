@@ -25,7 +25,7 @@ public class Nidoking extends Boss {
      * create special attack because enemy is a boss.
      */
     public int useSpecialAttack() {
-      //check if enough PP is available
+        //check if enough PP is available
         if (getMana() < 6) {
             System.out.println("Not enough PP for this move!");
             return -1;

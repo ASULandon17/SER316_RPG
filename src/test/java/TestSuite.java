@@ -1,5 +1,3 @@
-import org.hamcrest.core.IsInstanceOf;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -61,10 +59,12 @@ public class TestSuite {
         int damage = diglett.takeTurn();
         assertTrue("Generate Random stat is incorrect", (stat >= 2 && stat <= 4));
         assertEquals("attack hits for correct amount", diglett.getAttack(), diglett.useAttack());
-        assertTrue("Take turn is correct amount or miss", (damage == 0) || (damage == diglett.getAttack()));
+        assertTrue("Take turn is correct amount or miss", 
+                (damage == 0) || (damage == diglett.getAttack()));
         
         diglett.setLuck(100); //set luck to 100 to remove randomness
-        assertEquals("attack hits for correct amount when critical", (int) (diglett.getAttack() * 1.5), diglett.useAttack());
+        assertEquals("attack hits for correct amount when critical", 
+                (int) (diglett.getAttack() * 1.5), diglett.useAttack());
     }
     
     @Test
@@ -78,10 +78,12 @@ public class TestSuite {
         assertTrue("Geodude uses potion when it has one", geodude.useHitPotion());
         assertFalse("Geodude doesn't use potion when it has none", geodude.useHitPotion());
         assertEquals("attack hits for correct amount", geodude.getAttack(), geodude.useAttack());
-        assertTrue("Take turn is correct amount or miss", (damage == 0) || (damage == geodude.getAttack()));
+        assertTrue("Take turn is correct amount or miss", 
+                (damage == 0) || (damage == geodude.getAttack()));
         
         geodude.setLuck(100); //set luck to 100 to remove randomness
-        assertEquals("attack hits for correct amount when critical", (int) (geodude.getAttack() * 1.5), geodude.useAttack());
+        assertEquals("attack hits for correct amount when critical", 
+                (int) (geodude.getAttack() * 1.5), geodude.useAttack());
     }
     
     @Test
@@ -96,7 +98,8 @@ public class TestSuite {
         assertEquals("attack hits for correct amount", onix.getAttack(), onix.useAttack());
         
         onix.setLuck(100); //set luck to 100 to remove randomness
-        assertEquals("attack hits for correct amount when critical", (int) (onix.getAttack() * 1.5), onix.useAttack());
+        assertEquals("attack hits for correct amount when critical", 
+                (int) (onix.getAttack() * 1.5), onix.useAttack());
     }
     
     @Test
@@ -107,7 +110,8 @@ public class TestSuite {
         onix.setMana(0);
         assertEquals("Onix fails special att w/ 0 mana", -1, onix.useSpecialAttack());
         onix.setMana(10);
-        assertEquals("Onix uses special att w/ mana", (int) Math.floor(onix.useAttack() * 1.4), onix.useSpecialAttack());
+        assertEquals("Onix uses special att w/ mana", 
+                (int) Math.floor(onix.useAttack() * 1.4), onix.useSpecialAttack());
         onix.setHealth(1);
         assertEquals("Onix uses potion when necessary", 0, onix.takeTurn());
     }
@@ -120,7 +124,8 @@ public class TestSuite {
         raichu.setMana(0);
         assertEquals("Raichu fails special att w/ 0 mana", -1, raichu.useSpecialAttack());
         raichu.setMana(10);
-        assertEquals("Raichu uses special att w/ mana", (int) Math.floor(raichu.useAttack() * 1.4), raichu.useSpecialAttack());
+        assertEquals("Raichu uses special att w/ mana", 
+                (int) Math.floor(raichu.useAttack() * 1.4), raichu.useSpecialAttack());
         raichu.setHealth(1);
         assertEquals("Raichu uses potion when necessary", 0, raichu.takeTurn());
     }
@@ -133,7 +138,8 @@ public class TestSuite {
         alakazam.setMana(0);
         assertEquals("Alakazam fails special att w/ 0 mana", -1, alakazam.useSpecialAttack());
         alakazam.setMana(10);
-        assertEquals("Alakazam uses special att w/ mana", (int) Math.ceil(alakazam.useAttack() * 1.6), alakazam.useSpecialAttack());
+        assertEquals("Alakazam uses special att w/ mana", 
+                (int) Math.ceil(alakazam.useAttack() * 1.6), alakazam.useSpecialAttack());
         alakazam.setHealth(1);
         assertEquals("Alakazam uses potion when necessary", 0, alakazam.takeTurn());
     }
@@ -146,7 +152,8 @@ public class TestSuite {
         arcanine.setMana(0);
         assertEquals("Arcanine fails special att w/ 0 mana", -1, arcanine.useSpecialAttack());
         arcanine.setMana(10);
-        assertEquals("Arcanine uses special att w/ mana", (int) Math.ceil(arcanine.useAttack() * 1.4), arcanine.useSpecialAttack());
+        assertEquals("Arcanine uses special att w/ mana", 
+                (int) Math.ceil(arcanine.useAttack() * 1.4), arcanine.useSpecialAttack());
         arcanine.setHealth(1);
         assertEquals("Arcanine uses potion when necessary", 0, arcanine.takeTurn());
     }
@@ -159,7 +166,8 @@ public class TestSuite {
         nidoking.setMana(0);
         assertEquals("Nidoking fails special att w/ 0 mana", -1, nidoking.useSpecialAttack());
         nidoking.setMana(10);
-        assertEquals("Nidoking uses special att w/ mana", (int) Math.floor(nidoking.useAttack() * 2), nidoking.useSpecialAttack());
+        assertEquals("Nidoking uses special att w/ mana", 
+                (int) Math.floor(nidoking.useAttack() * 2), nidoking.useSpecialAttack());
         nidoking.setHealth(1);
         assertEquals("Nidoking uses potion when necessary", 0, nidoking.takeTurn());
     }
@@ -463,6 +471,74 @@ public class TestSuite {
         
         player.usePotion();
         
-        assertTrue("Player is now back to full health", player.getHealth() == player.getHitPoints());
+        assertTrue("Player is now back to full health", 
+                player.getHealth() == player.getHitPoints());
+    }
+    
+    @Test
+    public void runRandomNumberMethodsToMakeSureTheyDontBreak() {
+        Player player = new Squirtle("Landon", PlayerClass.ASSASSIN);
+        Player player2 = new Charmander("Landon", PlayerClass.ASSASSIN);
+        Player player3 = new Bulbasaur("Landon", PlayerClass.ASSASSIN);
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.setExperience(100);
+        player2.setExperience(100);
+        player3.setExperience(100);
+        
+        player.levelUp();
+        player2.levelUp();
+        player3.levelUp();
+        
+        player = Experience.evolve(player);
+        player2 = Experience.evolve(player2);
+        player3 = Experience.evolve(player3);
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.setExperience(500);
+        player2.setExperience(500);
+        player3.setExperience(500);
+        
+        player.levelUp();
+        player2.levelUp();
+        player3.levelUp();
+        
+        player = Experience.evolve(player);
+        player2 = Experience.evolve(player2);
+        player3 = Experience.evolve(player3);
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
+        
+        player.takeTurn();
+        player2.takeTurn();
+        player3.takeTurn();
     }
 }
