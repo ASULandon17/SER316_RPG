@@ -26,9 +26,11 @@ To beat the game the Pokemon must win every battle including the final boss at l
   defeated by the final boss at 5-10.
 
 
+
 Design Patterns:
 
 The implementation of this project uses 3 of the Gang of Four design principles.
+
 
 Abstract Factory:
 
