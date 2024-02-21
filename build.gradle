@@ -7,6 +7,8 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'eclipse'
 
+build.dependsOn jacocoTestReport
+
 mainClassName = 'Main'
 
 run {
